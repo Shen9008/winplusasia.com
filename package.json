@@ -1,0 +1,14 @@
+{
+  "name": "winplusasia-website",
+  "private": true,
+  "description": "Static site for winplusasia.com — deploy to Cloudflare Pages with Wrangler",
+  "scripts": {
+    "cf:login": "wrangler login",
+    "cf:whoami": "wrangler whoami",
+    "pages:create": "wrangler pages project create winplusasia --production-branch main",
+    "pages:deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main"
+  },
+  "devDependencies": {
+    "wrangler": "^4.28.0"
+  }
+}

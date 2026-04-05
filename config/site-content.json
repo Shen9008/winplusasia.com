@@ -1,0 +1,93 @@
+{
+  "brand": {
+    "name": "WinPlus Asia",
+    "domain": "winplusasia.com",
+    "tagline": "Premier online casino — slots, live tables & sports in one place."
+  },
+  "stats": {
+    "totalGames": "2,800+",
+    "slotTitles": "2,100+",
+    "liveTables": "320+",
+    "providers": "60+",
+    "sportsMarkets": "40+",
+    "avgPayoutHours": "Under 24h",
+    "bonusOffers": "12+",
+    "languages": "8+"
+  },
+  "topCategory": "Video slots & Megaways",
+  "jackpotGames": "180+",
+  "megawaysTitles": "140+",
+  "bonusBuyGames": "95+",
+  "highRTPNote": "Curated lists up to 97%+ theoretical RTP (game-dependent; check each title).",
+  "providers": [
+    "Pragmatic Play",
+    "Evolution",
+    "PG Soft",
+    "NetEnt",
+    "Play'n GO",
+    "Microgaming",
+    "Red Tiger",
+    "Hacksaw Gaming",
+    "Big Time Gaming",
+    "Nolimit City",
+    "Relax Gaming",
+    "Yggdrasil",
+    "Quickspin",
+    "Ezugi",
+    "Asia Gaming"
+  ],
+  "popularGames": [
+    { "name": "Gates of Olympus", "type": "High-volatility slot" },
+    { "name": "Sweet Bonanza", "type": "Tumble wins" },
+    { "name": "Book of Dead", "type": "Classic explorer slot" },
+    { "name": "Lightning Roulette", "type": "Live game show" },
+    { "name": "Crazy Time", "type": "Wheel & bonus rounds" },
+    { "name": "Mega Wheel", "type": "Game show" },
+    { "name": "Baccarat Squeeze", "type": "Live baccarat" },
+    { "name": "Blackjack Azure", "type": "Live blackjack" }
+  ],
+  "themes": [
+    { "label": "Fishing & ocean", "examples": "Big Bass series, fishing-themed holds" },
+    { "label": "Book / explorer", "examples": "Book of Dead, Book of Ra-style mechanics" },
+    { "label": "Dragons & East Asia", "examples": "Dragon Hatch, Mahjong Ways" },
+    { "label": "Japanese & anime", "examples": "Sakura, samurai, neon-Tokyo aesthetics" },
+    { "label": "Egypt & myths", "examples": "Gods of Olympus, pyramid adventures" },
+    { "label": "Fruit & retro", "examples": "Classic 3–5 reel nostalgia" }
+  ],
+  "listicle": {
+    "title": "7 signs you are on a serious casino lobby",
+    "items": [
+      "Clear RTP or rules links inside each game where the studio provides them",
+      "Segregated wallets or visible bonus vs cash balance",
+      "Live chat under 2 minutes at peak hours",
+      "Deposit limits and cooling-off toggles in one menu",
+      "Known providers with verifiable licences",
+      "Transparent promotion terms (turnover, max bet, expiry)",
+      "Help centre articles that match what support actually says"
+    ]
+  },
+  "steps": {
+    "title": "Start playing in 4 steps",
+    "steps": [
+      { "title": "Create your account", "text": "Register with email or mobile. Verify in minutes." },
+      { "title": "Secure your profile", "text": "Turn on 2FA if offered. Set deposit limits early." },
+      { "title": "Fund safely", "text": "Pick e-wallet, bank transfer, or card — whatever you trust." },
+      { "title": "Pick a lane", "text": "Slots, live dealers, or sports — one wallet, one login." }
+    ]
+  },
+  "infographic": {
+    "title": "Where players spend time",
+    "segments": [
+      { "label": "Video slots", "percent": 52, "color": "#c9a227" },
+      { "label": "Live casino", "percent": 28, "color": "#e85d75" },
+      { "label": "Game shows", "percent": 12, "color": "#5b8def" },
+      { "label": "Table RNG", "percent": 8, "color": "#3ecf8e" }
+    ]
+  },
+  "promotionsTeaser": [
+    { "title": "Welcome package", "desc": "Match + free spins on selected Pragmatic & PG Soft titles." },
+    { "title": "Reload weekends", "desc": "Weekly top-ups for active players — check terms." },
+    { "title": "Live casino cashback", "desc": "A slice back on net live losses, capped per promo rules." },
+    { "title": "VIP perks", "text": "Tiered rewards, faster reviews, dedicated hosts." }
+  ]
+}
