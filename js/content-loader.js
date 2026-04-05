@@ -33,7 +33,13 @@
         var ol = wrap.querySelector('ol');
         if (!ol) return;
         ol.innerHTML = data.items.map(function (t, i) {
-            return '<li><span class="listicle__num">' + (i + 1) + '</span><span>' + esc(t) + '</span></li>';
+            return (
+                '<li class="player-list__item"><span class="player-list__mark">' +
+                (i + 1) +
+                '</span><span class="player-list__text">' +
+                esc(t) +
+                '</span></li>'
+            );
         }).join('');
     }
 
@@ -47,7 +53,7 @@
         track.innerHTML = data.steps
             .map(function (s, i) {
                 return (
-                    '<div class="step-card" data-animate>' +
+                    '<div class="step-card step-card--simple" data-animate>' +
                     '<div class="step-card__n">' +
                     (i + 1) +
                     '</div>' +
