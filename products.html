@@ -30,9 +30,12 @@
 
     <main id="main-content">
         <div class="page-hero">
-            <div class="container">
-                <h1>What you can play</h1>
-                <p>One login. Slots, real dealers, sports—pick what fits your night. Here’s how each lobby breaks down.</p>
+            <div class="container page-hero__row">
+                <div class="page-hero__copy">
+                    <h1>What you can play</h1>
+                    <p>One login. Slots, real dealers, sports—pick what fits your night. Here’s how each lobby breaks down.</p>
+                </div>
+                <div class="ph ph--page-hero" aria-hidden="true"><span class="ph__tag">Games</span></div>
             </div>
         </div>
 
@@ -59,6 +62,7 @@
 
                 <div class="grid-2" style="gap:1.5rem">
                     <article class="vertical-card vertical-card--gold" id="slots" data-animate>
+                        <div class="ph ph--vertical ph--vertical-slots" aria-hidden="true"><span class="ph__tag">Slots</span></div>
                         <div class="vertical-card__icon">
                             <svg class="icon" style="width:28px;height:28px" aria-hidden="true"><use href="#icon-slot"></use></svg>
                         </div>
@@ -78,6 +82,7 @@
                     </article>
 
                     <article class="vertical-card vertical-card--live" id="live" data-animate>
+                        <div class="ph ph--vertical ph--vertical-live" aria-hidden="true"><span class="ph__tag">Live</span></div>
                         <div class="vertical-card__icon">
                             <svg class="icon" style="width:28px;height:28px" aria-hidden="true"><use href="#icon-live"></use></svg>
                         </div>
@@ -93,6 +98,7 @@
                 </div>
 
                 <article class="vertical-card" id="sports" style="margin-top:1.5rem" data-animate>
+                    <div class="ph ph--vertical ph--vertical-sports" aria-hidden="true"><span class="ph__tag">Sports</span></div>
                     <div class="vertical-card__icon" style="background:rgba(81,207,102,0.15);color:#51cf66">
                         <svg class="icon" style="width:28px;height:28px" aria-hidden="true"><use href="#icon-sports"></use></svg>
                     </div>

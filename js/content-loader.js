@@ -52,8 +52,12 @@
         if (!track) return;
         track.innerHTML = data.steps
             .map(function (s, i) {
+                var pv = i % 4;
                 return (
                     '<div class="step-card step-card--simple" data-animate>' +
+                    '<div class="ph ph--step ph--step-' +
+                    pv +
+                    '" aria-hidden="true"><span class="ph__tag">Step</span></div>' +
                     '<div class="step-card__n">' +
                     (i + 1) +
                     '</div>' +
@@ -111,11 +115,15 @@
         var grid = root.querySelector('[data-wp-popular]');
         if (!grid || !games) return;
         grid.innerHTML = games
-            .map(function (g) {
+            .map(function (g, i) {
+                var v = i % 8;
                 return (
                     '<article class="game-chip" data-animate>' +
-                    '<div class="game-chip__icon"><svg class="icon" aria-hidden="true"><use href="#icon-slot"></use></svg></div>' +
-                    '<div><h3 class="game-chip__name">' +
+                    '<div class="ph ph--game ph--game-' +
+                    v +
+                    '" aria-hidden="true"><span class="ph__tag">Art</span></div>' +
+                    '<div class="game-chip__body">' +
+                    '<h3 class="game-chip__name">' +
                     esc(g.name) +
                     '</h3><p class="game-chip__type">' +
                     esc(g.type) +
@@ -129,16 +137,21 @@
         var grid = root.querySelector('[data-wp-promos]');
         if (!grid || !items) return;
         grid.innerHTML = items
-            .map(function (p) {
+            .map(function (p, i) {
                 var body = p.desc ? esc(p.desc) : esc(p.text || '');
+                var pv = i % 4;
                 return (
                     '<article class="promo-card" data-animate>' +
+                    '<div class="ph ph--promo ph--promo-' +
+                    pv +
+                    '" aria-hidden="true"><span class="ph__tag">Offer</span></div>' +
+                    '<div class="promo-card__body">' +
                     '<h3>' +
                     esc(p.title) +
                     '</h3>' +
                     '<p>' +
                     body +
-                    '</p></article>'
+                    '</p></div></article>'
                 );
             })
             .join('');
@@ -148,9 +161,13 @@
         var grid = root.querySelector('[data-wp-themes]');
         if (!grid || !themes) return;
         grid.innerHTML = themes
-            .map(function (t) {
+            .map(function (t, i) {
+                var tv = i % 6;
                 return (
                     '<div class="theme-card" data-animate>' +
+                    '<div class="ph ph--theme ph--theme-' +
+                    tv +
+                    '" aria-hidden="true"><span class="ph__tag">Theme</span></div>' +
                     '<h3 class="theme-card__label">' +
                     esc(t.label) +
                     '</h3>' +
