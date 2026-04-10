@@ -117,11 +117,16 @@
         grid.innerHTML = games
             .map(function (g, i) {
                 var v = i % 8;
+                var thumb = g.image
+                    ? '<div class="game-chip__thumb"><img src="' +
+                      esc(g.image) +
+                      '" alt="" width="480" height="180" loading="lazy" decoding="async" /></div>'
+                    : '<div class="ph ph--game ph--game-' +
+                      v +
+                      '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
                 return (
                     '<article class="game-chip" data-animate>' +
-                    '<div class="ph ph--game ph--game-' +
-                    v +
-                    '" aria-hidden="true"><span class="ph__tag">Art</span></div>' +
+                    thumb +
                     '<div class="game-chip__body">' +
                     '<h3 class="game-chip__name">' +
                     esc(g.name) +
@@ -140,11 +145,16 @@
             .map(function (p, i) {
                 var body = p.desc ? esc(p.desc) : esc(p.text || '');
                 var pv = i % 4;
+                var thumb = p.image
+                    ? '<div class="promo-card__media"><img src="' +
+                      esc(p.image) +
+                      '" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>'
+                    : '<div class="ph ph--promo ph--promo-' +
+                      pv +
+                      '" aria-hidden="true"><span class="ph__tag">Offer</span></div>';
                 return (
                     '<article class="promo-card" data-animate>' +
-                    '<div class="ph ph--promo ph--promo-' +
-                    pv +
-                    '" aria-hidden="true"><span class="ph__tag">Offer</span></div>' +
+                    thumb +
                     '<div class="promo-card__body">' +
                     '<h3>' +
                     esc(p.title) +

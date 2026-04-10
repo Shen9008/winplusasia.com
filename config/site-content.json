@@ -37,14 +37,14 @@
     "Asia Gaming"
   ],
   "popularGames": [
-    { "name": "Gates of Olympus", "type": "High-volatility hits" },
-    { "name": "Sweet Bonanza", "type": "Tumble wins" },
-    { "name": "Book of Dead", "type": "Explorer classic" },
-    { "name": "Lightning Roulette", "type": "Live multiplier roulette" },
-    { "name": "Crazy Time", "type": "Bonus wheel show" },
-    { "name": "Mega Wheel", "type": "Spin the wheel" },
-    { "name": "Baccarat Squeeze", "type": "Live baccarat" },
-    { "name": "Blackjack Azure", "type": "Live 21" }
+    { "name": "Gates of Olympus", "type": "High-volatility hits", "image": "images/webp/icon-slots.webp" },
+    { "name": "Sweet Bonanza", "type": "Tumble wins", "image": "images/webp/icon-slots.webp" },
+    { "name": "Book of Dead", "type": "Explorer classic", "image": "images/webp/icon-slots.webp" },
+    { "name": "Lightning Roulette", "type": "Live multiplier roulette", "image": "images/webp/icon-slots.webp" },
+    { "name": "Crazy Time", "type": "Bonus wheel show", "image": "images/webp/icon-slots.webp" },
+    { "name": "Mega Wheel", "type": "Spin the wheel", "image": "images/webp/icon-slots.webp" },
+    { "name": "Baccarat Squeeze", "type": "Live baccarat", "image": "images/webp/icon-baccarat.webp" },
+    { "name": "Blackjack Azure", "type": "Live 21", "image": "images/webp/icon-baccarat.webp" }
   ],
   "themes": [
     { "label": "Fishing & ocean", "examples": "Big Bass vibes, reeling in multipliers" },
@@ -85,9 +85,9 @@
     ]
   },
   "promotionsTeaser": [
-    { "title": "Welcome boost", "desc": "Match + spins on hand-picked slots—check the card for games." },
-    { "title": "Weekend reloads", "desc": "Top up when you’re playing heavy—terms apply." },
-    { "title": "Live cashback", "desc": "A cut back on live play—see promo for caps." },
-    { "title": "VIP lane", "text": "Bigger limits, faster reviews, your own host." }
+    { "title": "Welcome boost", "desc": "Match + spins on hand-picked slots—check the card for games.", "image": "images/webp/promo-welcome-boost.webp" },
+    { "title": "Weekend reloads", "desc": "Top up when you’re playing heavy—terms apply.", "image": "images/webp/promo-weekend-reloads.webp" },
+    { "title": "Live cashback", "desc": "A cut back on live play—see promo for caps.", "image": "images/webp/promo-live-cashback.webp" },
+    { "title": "VIP lane", "text": "Bigger limits, faster reviews, your own host.", "image": "images/webp/promo-vip-lane.webp" }
   ]
 }

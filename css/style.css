@@ -138,6 +138,17 @@ h2 {
     font-weight: 600;
 }
 
+.logo__img {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.logo--footer .logo__img {
+    height: 40px;
+}
+
 .logo--footer .logo__mark {
     width: 42px;
     height: 42px;
@@ -462,6 +473,69 @@ h2 {
 
 .hero__visual .ph--hero {
     border-radius: var(--radius-lg);
+}
+
+.hero__img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    display: block;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.page-hero__media {
+    border-radius: var(--radius);
+    overflow: hidden;
+    line-height: 0;
+    max-width: 220px;
+    margin-left: auto;
+}
+
+.page-hero__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.vertical-card__banner {
+    line-height: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.vertical-card__banner-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+.game-chip__thumb {
+    line-height: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.game-chip__thumb img {
+    width: 100%;
+    height: 76px;
+    object-fit: cover;
+    display: block;
+}
+
+.promo-card__media {
+    line-height: 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.promo-card__media img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
 }
 
 /* Sections */
