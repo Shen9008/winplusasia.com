@@ -54,3 +54,13 @@ if (fs.existsSync(favSrc)) {
     .toFile(path.join(root, 'favicon.webp'));
   console.log('OK favicon.webp (root)');
 }
+
+/* Wide ~2.7:1 crop for small “Hot right now” cards (not full hero aspect) */
+const liveChipSrc = path.join(imagesDir, 'Hero Banner/live casino.jpg');
+if (fs.existsSync(liveChipSrc)) {
+  await sharp(liveChipSrc)
+    .resize(640, 220, { fit: 'cover', position: 'attention' })
+    .webp({ quality: 84, effort: 5 })
+    .toFile(path.join(outDir, 'chip-live-casino.webp'));
+  console.log('OK chip-live-casino.webp ← Hero Banner/live casino.jpg (card crop)');
+}

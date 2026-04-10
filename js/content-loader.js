@@ -10,6 +10,21 @@
         return d.innerHTML;
     }
 
+    /** Local /images/webp/*.webp paths only — never esc() URLs into src. */
+    function safeImgSrc(u) {
+        if (u == null || u === '') return '';
+        var s = String(u).trim().replace(/[\r\n\u0000]/g, '').replace(/^\/+/, '');
+        if (!/^images\/webp\/[a-z0-9][a-z0-9_.-]*\.webp$/i.test(s)) return '';
+        return '/' + s;
+    }
+
+    function escAttr(s) {
+        return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;');
+    }
+
     function fillStats(root, stats) {
         if (!stats) return;
         root.querySelectorAll('[data-wp-stat]').forEach(function (el) {
@@ -117,29 +132,30 @@
         grid.innerHTML = games
             .map(function (g, i) {
                 var v = i % 8;
-                var imgSrc = g.image || '';
-                var isHeroThumb = imgSrc.indexOf('hero-') !== -1;
+                var imgSrc = safeImgSrc(g.image);
+                var isBannerThumb =
+                    imgSrc.indexOf('hero-') !== -1 || imgSrc.indexOf('chip-') !== -1;
                 var isIconThumb = imgSrc.indexOf('icon-') !== -1;
                 var thumbClass = 'game-chip__thumb';
-                if (isHeroThumb) thumbClass += ' game-chip__thumb--hero';
+                if (isBannerThumb) thumbClass += ' game-chip__thumb--banner';
                 else if (isIconThumb) thumbClass += ' game-chip__thumb--icon';
                 if (g.category === 'slots') thumbClass += ' game-chip__thumb--slots';
                 if (g.category === 'live') thumbClass += ' game-chip__thumb--live';
-                var alt = g.name ? esc(String(g.name)) + ' preview' : 'Game preview';
+                var alt = g.name ? escAttr(String(g.name)) + ' preview' : 'Game preview';
                 var thumb = imgSrc
                     ? '<div class="' +
                       thumbClass +
                       '"><img src="' +
-                      esc(imgSrc) +
+                      imgSrc +
                       '" alt="' +
                       alt +
-                      '" width="480" height="180" loading="lazy" decoding="async" /></div>'
+                      '" width="640" height="220" loading="lazy" decoding="async" sizes="(max-width: 559px) 100vw, 25vw" /></div>'
                     : '<div class="ph ph--game ph--game-' +
                       v +
                       '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
                 return (
                     '<article class="game-chip" data-animate data-category="' +
-                      esc(g.category || '') +
+                      escAttr(g.category || '') +
                       '">' +
                     thumb +
                     '<div class="game-chip__body">' +
@@ -160,9 +176,10 @@
             .map(function (p, i) {
                 var body = p.desc ? esc(p.desc) : esc(p.text || '');
                 var pv = i % 4;
-                var thumb = p.image
+                var pImg = safeImgSrc(p.image);
+                var thumb = pImg
                     ? '<div class="promo-card__media"><img src="' +
-                      esc(p.image) +
+                      pImg +
                       '" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>'
                     : '<div class="ph ph--promo ph--promo-' +
                       pv +

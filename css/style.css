@@ -518,6 +518,7 @@ h2 {
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     background: #12141a;
+    min-height: 76px;
 }
 
 .game-chip__thumb img {
@@ -532,13 +533,15 @@ h2 {
 .game-chip__thumb--icon img {
     object-fit: contain;
     object-position: center center;
-    padding: 0.35rem 0.5rem;
+    padding: 0.25rem 0.4rem;
+    height: 80px;
+    min-height: 80px;
 }
 
-/* Live lobby banner crop in narrow strip */
-.game-chip__thumb--hero img {
+/* Pre-cropped banner / chip assets (wide hero or chip-live-*) */
+.game-chip__thumb--banner img {
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center center;
 }
 
 .game-chip__thumb--slots {
@@ -662,6 +665,7 @@ h2 {
 .game-chip {
     display: flex;
     flex-direction: column;
+    min-width: 0;
     padding: 0;
     overflow: hidden;
     background: var(--surface);
