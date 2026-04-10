@@ -10,11 +10,12 @@
         return d.innerHTML;
     }
 
-    /** Local /images/webp/*.webp paths only — never esc() URLs into src. */
+    /** Local /images/webp/**/*.webp paths only — never esc() URLs into src. */
     function safeImgSrc(u) {
         if (u == null || u === '') return '';
         var s = String(u).trim().replace(/[\r\n\u0000]/g, '').replace(/^\/+/, '');
-        if (!/^images\/webp\/[a-z0-9][a-z0-9_.-]*\.webp$/i.test(s)) return '';
+        if (s.indexOf('..') !== -1) return '';
+        if (!/^images\/webp\/[a-z0-9][a-z0-9_.\/-]*\.webp$/i.test(s)) return '';
         return '/' + s;
     }
 
@@ -134,7 +135,9 @@
                 var v = i % 8;
                 var imgSrc = safeImgSrc(g.image);
                 var isBannerThumb =
-                    imgSrc.indexOf('hero-') !== -1 || imgSrc.indexOf('chip-') !== -1;
+                    imgSrc.indexOf('hero-') !== -1 ||
+                    imgSrc.indexOf('chip-') !== -1 ||
+                    imgSrc.indexOf('/cards/') !== -1;
                 var isIconThumb = imgSrc.indexOf('icon-') !== -1;
                 var thumbClass = 'game-chip__thumb';
                 if (isBannerThumb) thumbClass += ' game-chip__thumb--banner';
