@@ -1,6 +1,7 @@
 /**
- * Convert images/images subfolders to optimized WebP under images/webp/
- * and write root favicon.webp from images/favicon.png
+ * Convert images/ sources to optimized WebP under images/webp/
+ * and write root favicon.webp from images/favicon.png.
+ * Game card strips: PNGs at images/*.png → images/webp/cards/*.webp (640×220 cover).
  */
 import sharp from 'sharp';
 import fs from 'fs';
@@ -63,4 +64,30 @@ if (fs.existsSync(liveChipSrc)) {
     .webp({ quality: 84, effort: 5 })
     .toFile(path.join(outDir, 'chip-live-casino.webp'));
   console.log('OK chip-live-casino.webp ← Hero Banner/live casino.jpg (card crop)');
+}
+
+/* Hot right now — PNG artwork in images/ (matches config popularGames image paths) */
+const cardsOut = path.join(outDir, 'cards');
+fs.mkdirSync(cardsOut, { recursive: true });
+const gameCardSources = [
+  ['gates of olympus.png', 'gates-of-olympus.webp'],
+  ['sweet bonanza.png', 'sweet-bonanza.webp'],
+  ['book of dead.png', 'book-of-dead.webp'],
+  ['Lightning Roulette.png', 'lightning-roulette.webp'],
+  ['Crazy Time.png', 'crazy-time.webp'],
+  ['Mega wheel.png', 'mega-wheel.webp'],
+  ['baccarat squeeze.png', 'baccarat-squeeze.webp'],
+  ['blackjack azure.png', 'blackjack-azure.webp'],
+];
+for (const [src, dest] of gameCardSources) {
+  const srcPath = path.join(imagesDir, src);
+  if (!fs.existsSync(srcPath)) {
+    console.warn('Missing game card source, skip:', srcPath);
+    continue;
+  }
+  await sharp(srcPath)
+    .resize(640, 220, { fit: 'cover', position: 'attention' })
+    .webp({ quality: 84, effort: 5 })
+    .toFile(path.join(cardsOut, dest));
+  console.log('OK cards/' + dest, '←', src);
 }

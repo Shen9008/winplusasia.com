@@ -4,7 +4,6 @@
   "description": "Static site for winplusasia.com — deploy to Cloudflare Pages with Wrangler",
   "scripts": {
     "images:webp": "node scripts/optimize-images.mjs",
-    "images:cards": "node scripts/fetch-game-card-images.mjs",
     "cf:login": "wrangler login",
     "cf:whoami": "wrangler whoami",
     "pages:create": "wrangler pages project create winplusasia --production-branch main",
