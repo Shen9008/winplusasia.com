@@ -37,14 +37,14 @@
     "Asia Gaming"
   ],
   "popularGames": [
-    { "name": "Gates of Olympus", "type": "High-volatility hits", "image": "images/webp/icon-slots.webp" },
-    { "name": "Sweet Bonanza", "type": "Tumble wins", "image": "images/webp/icon-slots.webp" },
-    { "name": "Book of Dead", "type": "Explorer classic", "image": "images/webp/icon-slots.webp" },
-    { "name": "Lightning Roulette", "type": "Live multiplier roulette", "image": "images/webp/icon-slots.webp" },
-    { "name": "Crazy Time", "type": "Bonus wheel show", "image": "images/webp/icon-slots.webp" },
-    { "name": "Mega Wheel", "type": "Spin the wheel", "image": "images/webp/icon-slots.webp" },
-    { "name": "Baccarat Squeeze", "type": "Live baccarat", "image": "images/webp/icon-baccarat.webp" },
-    { "name": "Blackjack Azure", "type": "Live 21", "image": "images/webp/icon-baccarat.webp" }
+    { "name": "Gates of Olympus", "type": "High-volatility hits", "category": "slots", "image": "images/webp/icon-slots.webp" },
+    { "name": "Sweet Bonanza", "type": "Tumble wins", "category": "slots", "image": "images/webp/icon-slots.webp" },
+    { "name": "Book of Dead", "type": "Explorer classic", "category": "slots", "image": "images/webp/icon-slots.webp" },
+    { "name": "Lightning Roulette", "type": "Live multiplier roulette", "category": "live", "image": "images/webp/hero-live-casino.webp" },
+    { "name": "Crazy Time", "type": "Bonus wheel show", "category": "live", "image": "images/webp/hero-live-casino.webp" },
+    { "name": "Mega Wheel", "type": "Spin the wheel", "category": "live", "image": "images/webp/hero-live-casino.webp" },
+    { "name": "Baccarat Squeeze", "type": "Live baccarat", "category": "live", "image": "images/webp/icon-baccarat.webp" },
+    { "name": "Blackjack Azure", "type": "Live 21", "category": "live", "image": "images/webp/icon-baccarat.webp" }
   ],
   "themes": [
     { "label": "Fishing & ocean", "examples": "Big Bass vibes, reeling in multipliers" },

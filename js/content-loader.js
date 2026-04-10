@@ -117,15 +117,30 @@
         grid.innerHTML = games
             .map(function (g, i) {
                 var v = i % 8;
-                var thumb = g.image
-                    ? '<div class="game-chip__thumb"><img src="' +
-                      esc(g.image) +
-                      '" alt="" width="480" height="180" loading="lazy" decoding="async" /></div>'
+                var imgSrc = g.image || '';
+                var isHeroThumb = imgSrc.indexOf('hero-') !== -1;
+                var isIconThumb = imgSrc.indexOf('icon-') !== -1;
+                var thumbClass = 'game-chip__thumb';
+                if (isHeroThumb) thumbClass += ' game-chip__thumb--hero';
+                else if (isIconThumb) thumbClass += ' game-chip__thumb--icon';
+                if (g.category === 'slots') thumbClass += ' game-chip__thumb--slots';
+                if (g.category === 'live') thumbClass += ' game-chip__thumb--live';
+                var alt = g.name ? esc(String(g.name)) + ' preview' : 'Game preview';
+                var thumb = imgSrc
+                    ? '<div class="' +
+                      thumbClass +
+                      '"><img src="' +
+                      esc(imgSrc) +
+                      '" alt="' +
+                      alt +
+                      '" width="480" height="180" loading="lazy" decoding="async" /></div>'
                     : '<div class="ph ph--game ph--game-' +
                       v +
                       '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
                 return (
-                    '<article class="game-chip" data-animate>' +
+                    '<article class="game-chip" data-animate data-category="' +
+                      esc(g.category || '') +
+                      '">' +
                     thumb +
                     '<div class="game-chip__body">' +
                     '<h3 class="game-chip__name">' +
