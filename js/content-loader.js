@@ -127,49 +127,113 @@
         }).join('');
     }
 
+    function gameChipHtml(g, i) {
+        var v = i % 8;
+        var imgSrc = safeImgSrc(g.image);
+        var isBannerThumb =
+            imgSrc.indexOf('hero-') !== -1 ||
+            imgSrc.indexOf('chip-') !== -1 ||
+            imgSrc.indexOf('/cards/') !== -1;
+        var isIconThumb = imgSrc.indexOf('icon-') !== -1;
+        var thumbClass = 'game-chip__thumb';
+        if (isBannerThumb) thumbClass += ' game-chip__thumb--banner';
+        else if (isIconThumb) thumbClass += ' game-chip__thumb--icon';
+        if (g.category === 'slots') thumbClass += ' game-chip__thumb--slots';
+        if (g.category === 'live') thumbClass += ' game-chip__thumb--live';
+        var alt = g.name ? escAttr(String(g.name)) + ' preview' : 'Game preview';
+        var thumb = imgSrc
+            ? '<div class="' +
+              thumbClass +
+              '"><img src="' +
+              imgSrc +
+              '" alt="' +
+              alt +
+              '" width="640" height="220" loading="lazy" decoding="async" sizes="(max-width: 559px) 100vw, 25vw" /></div>'
+            : '<div class="ph ph--game ph--game-' +
+              v +
+              '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
+        return (
+            '<article class="game-chip" data-animate data-category="' +
+            escAttr(g.category || '') +
+            '">' +
+            thumb +
+            '<div class="game-chip__body">' +
+            '<h3 class="game-chip__name">' +
+            esc(g.name) +
+            '</h3><p class="game-chip__type">' +
+            esc(g.type) +
+            '</p></div></article>'
+        );
+    }
+
     function renderPopular(root, games) {
-        var grid = root.querySelector('[data-wp-popular]');
-        if (!grid || !games) return;
-        grid.innerHTML = games
-            .map(function (g, i) {
-                var v = i % 8;
-                var imgSrc = safeImgSrc(g.image);
-                var isBannerThumb =
-                    imgSrc.indexOf('hero-') !== -1 ||
-                    imgSrc.indexOf('chip-') !== -1 ||
-                    imgSrc.indexOf('/cards/') !== -1;
-                var isIconThumb = imgSrc.indexOf('icon-') !== -1;
-                var thumbClass = 'game-chip__thumb';
-                if (isBannerThumb) thumbClass += ' game-chip__thumb--banner';
-                else if (isIconThumb) thumbClass += ' game-chip__thumb--icon';
-                if (g.category === 'slots') thumbClass += ' game-chip__thumb--slots';
-                if (g.category === 'live') thumbClass += ' game-chip__thumb--live';
-                var alt = g.name ? escAttr(String(g.name)) + ' preview' : 'Game preview';
-                var thumb = imgSrc
-                    ? '<div class="' +
-                      thumbClass +
-                      '"><img src="' +
-                      imgSrc +
-                      '" alt="' +
-                      alt +
-                      '" width="640" height="220" loading="lazy" decoding="async" sizes="(max-width: 559px) 100vw, 25vw" /></div>'
-                    : '<div class="ph ph--game ph--game-' +
-                      v +
-                      '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
+        if (!games) return;
+        root.querySelectorAll('[data-wp-popular]').forEach(function (grid) {
+            grid.innerHTML = games.map(function (g, i) {
+                return gameChipHtml(g, i);
+            }).join('');
+        });
+    }
+
+    function renderGamesByCategory(root, categories) {
+        var mount = root.querySelector('[data-wp-games-by-category]');
+        if (!mount || !categories || !categories.length) return;
+        mount.innerHTML = categories
+            .map(function (cat, ci) {
+                var hid = 'gcat-h-' + ci;
+                var games = cat.games || [];
+                var chips = games
+                    .map(function (g, gi) {
+                        return gameChipHtml(g, gi);
+                    })
+                    .join('');
+                var sub = cat.subtitle ? '<p class="section-head__sub">' + esc(cat.subtitle) + '</p>' : '';
                 return (
-                    '<article class="game-chip" data-animate data-category="' +
-                      escAttr(g.category || '') +
-                      '">' +
-                    thumb +
-                    '<div class="game-chip__body">' +
-                    '<h3 class="game-chip__name">' +
-                    esc(g.name) +
-                    '</h3><p class="game-chip__type">' +
-                    esc(g.type) +
-                    '</p></div></article>'
+                    '<section class="games-cat-block" data-games-cat="' +
+                    escAttr(cat.id || '') +
+                    '" aria-labelledby="' +
+                    escAttr(hid) +
+                    '">' +
+                    '<header class="section-head section-head--left">' +
+                    '<h2 id="' +
+                    escAttr(hid) +
+                    '" class="section-head__title">' +
+                    esc(cat.title) +
+                    '</h2>' +
+                    sub +
+                    '</header>' +
+                    '<div class="grid-2 grid-2--games games-cat-block__grid">' +
+                    chips +
+                    '</div></section>'
                 );
             })
             .join('');
+    }
+
+    function renderHotPromos(root, items) {
+        var mount = root.querySelector('[data-wp-hot-promos]');
+        if (!mount || !items || !items.length) return;
+        mount.innerHTML =
+            '<div class="hot-promo-strip">' +
+            items
+                .map(function (h) {
+                    var badge = h.badge ? '<span class="hot-promo-card__badge">' + esc(h.badge) + '</span>' : '';
+                    var meta = h.meta ? '<p class="hot-promo-card__meta">' + esc(h.meta) + '</p>' : '';
+                    return (
+                        '<article class="hot-promo-card" data-animate>' +
+                        badge +
+                        '<h3 class="hot-promo-card__title">' +
+                        esc(h.title) +
+                        '</h3>' +
+                        '<p class="hot-promo-card__teaser">' +
+                        esc(h.teaser) +
+                        '</p>' +
+                        meta +
+                        '</article>'
+                    );
+                })
+                .join('') +
+            '</div>';
     }
 
     function renderPromos(root, items) {
@@ -237,7 +301,9 @@
         renderInfographic(root, data.infographic);
         renderProviders(root, data.providers);
         renderPopular(root, data.popularGames);
+        renderGamesByCategory(root, data.gamesByCategory);
         renderThemes(root, data.themes);
+        renderHotPromos(root, data.hotPromotionHighlights);
         renderPromos(root, data.promotionsTeaser);
 
         document.dispatchEvent(new CustomEvent('wp:content-loaded'));

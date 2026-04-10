@@ -46,6 +46,144 @@
     { "name": "Baccarat Squeeze", "type": "Live baccarat", "category": "live", "image": "images/webp/cards/baccarat-squeeze.webp" },
     { "name": "Blackjack Azure", "type": "Live 21", "category": "live", "image": "images/webp/cards/blackjack-azure.webp" }
   ],
+  "hotPromotionHighlights": [
+    {
+      "badge": "Hot",
+      "title": "Weekend reload ladder",
+      "teaser": "Stacked match tiers on Friday–Sunday when you top up—watch the max bet and game weighting before you opt in.",
+      "meta": "Typical window: Fri 00:00 – Sun 23:59 (server time)"
+    },
+    {
+      "badge": "Players’ pick",
+      "title": "Welcome pack: match + spins",
+      "teaser": "First-deposit match with spins on curated slots—e-wallets sometimes excluded; read the payment line first.",
+      "meta": "Check min deposit & cap in cashier"
+    },
+    {
+      "badge": "Live",
+      "title": "Live-table cashback",
+      "teaser": "A percentage back on net live play over a defined period—caps and eligible tables vary by brand.",
+      "meta": "Often excludes dual betting patterns"
+    },
+    {
+      "badge": "Limited",
+      "title": "Drops & wins–style races",
+      "teaser": "Prize pools on selected RNG titles—leaderboards may rank by multiplier or bet volume; set a ceiling before you chase ranks.",
+      "meta": "Opt-in usually required"
+    }
+  ],
+  "gamesByCategory": [
+    {
+      "id": "megaways",
+      "title": "Top Megaways picks",
+      "subtitle": "Variable ways and tumbling features—volatility runs high; start with modest stakes.",
+      "games": [
+        { "name": "Bonanza Megaways", "type": "BTG-style ways + reactions", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Extra Chilli Megaways", "type": "Feature drop where legal", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" },
+        { "name": "The Dog House Megaways", "type": "Sticky wilds in bonus", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" },
+        { "name": "Gonzo’s Quest Megaways", "type": "Avalanche multipliers", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" }
+      ]
+    },
+    {
+      "id": "jackpot",
+      "title": "Jackpot & progressive",
+      "subtitle": "Seed amounts and contribution rules differ—open the in-game panel for the active tier.",
+      "games": [
+        { "name": "Mega Moolah-style network", "type": "Tiered wheel jackpot", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" },
+        { "name": "Divine Fortune", "type": "Local progressive", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" },
+        { "name": "Daily drop jackpots", "type": "Timed must-drop pools", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Hourly jackpots", "type": "Short countdown pots", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" }
+      ]
+    },
+    {
+      "id": "arcade",
+      "title": "Arcade & instant",
+      "subtitle": "Fast rounds—set hard loss limits because pace feels casual.",
+      "games": [
+        { "name": "Plinko / ball-drop", "type": "Multiplier ladders", "category": "slots", "image": "images/webp/cards/mega-wheel.webp" },
+        { "name": "Mines / pick tiles", "type": "Risk ladder", "category": "slots", "image": "images/webp/cards/crazy-time.webp" },
+        { "name": "Scratch & reveal", "type": "Fixed odds instant", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Keno draws", "type": "Number draw RNG", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" }
+      ]
+    },
+    {
+      "id": "roulette",
+      "title": "Roulette (RNG & live)",
+      "subtitle": "European vs American odds differ; multiplier variants add volatility.",
+      "games": [
+        { "name": "Lightning Roulette", "type": "Live multiplier RNG", "category": "live", "image": "images/webp/cards/lightning-roulette.webp" },
+        { "name": "Immersive Roulette", "type": "Slow-motion close-ups", "category": "live", "image": "images/webp/cards/lightning-roulette.webp" },
+        { "name": "Auto Roulette", "type": "Fast automated wheel", "category": "live", "image": "images/webp/cards/lightning-roulette.webp" },
+        { "name": "European RNG roulette", "type": "Single-zero layout", "category": "slots", "image": "images/webp/cards/mega-wheel.webp" }
+      ]
+    },
+    {
+      "id": "baccarat",
+      "title": "Baccarat tables",
+      "subtitle": "Speed, squeeze, and no-commission rules change payouts—read the felt.",
+      "games": [
+        { "name": "Baccarat Squeeze", "type": "Dramatic reveals", "category": "live", "image": "images/webp/cards/baccarat-squeeze.webp" },
+        { "name": "Speed Baccarat", "type": "Shorter rounds", "category": "live", "image": "images/webp/cards/baccarat-squeeze.webp" },
+        { "name": "No Commission Baccarat", "type": "Adjusted banker wins", "category": "live", "image": "images/webp/cards/baccarat-squeeze.webp" },
+        { "name": "Dragon Tiger", "type": "Two-card showdown", "category": "live", "image": "images/webp/cards/baccarat-squeeze.webp" }
+      ]
+    },
+    {
+      "id": "blackjack",
+      "title": "Blackjack",
+      "subtitle": "Classic strategy still applies—side bets raise house edge.",
+      "games": [
+        { "name": "Blackjack Azure", "type": "Low-latency HD", "category": "live", "image": "images/webp/cards/blackjack-azure.webp" },
+        { "name": "Infinite Blackjack", "type": "Shared starting hand", "category": "live", "image": "images/webp/cards/blackjack-azure.webp" },
+        { "name": "Free Bet Blackjack", "type": "Free doubles/splits rules", "category": "live", "image": "images/webp/cards/blackjack-azure.webp" },
+        { "name": "VIP blackjack", "type": "Higher limits", "category": "live", "image": "images/webp/cards/blackjack-azure.webp" }
+      ]
+    },
+    {
+      "id": "fishing",
+      "title": "Fishing & hunter series",
+      "subtitle": "Skill-shot style arcade slots popular in Asia—check bet scaling and boss rounds.",
+      "games": [
+        { "name": "Fishin’ Bonanza", "type": "Collect & upgrade shots", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Ocean King-style hunt", "type": "Multiplayer cannons", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" },
+        { "name": "Big Bass series", "type": "Collectors & retriggers", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" },
+        { "name": "Golden Dragon hunt", "type": "Boss multipliers", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" }
+      ]
+    },
+    {
+      "id": "hold-spin",
+      "title": "Hold & Spin",
+      "subtitle": "Coin link / respin mechanics—jackpot orbs often tiered.",
+      "games": [
+        { "name": "Wolf Gold-style respins", "type": "Hold & win orbs", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" },
+        { "name": "Money Train 3", "type": "Bonus buy features", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" },
+        { "name": "Lightning Link–style", "type": "Grand/Major/Mini tiers", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Fire Link / Ultra", "type": "Hot seat respins", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" }
+      ]
+    },
+    {
+      "id": "game-shows",
+      "title": "Game shows & wheels",
+      "subtitle": "TV pacing—easy to learn, fast to spend; cap bets explicitly.",
+      "games": [
+        { "name": "Crazy Time", "type": "Bonus games + wheel", "category": "live", "image": "images/webp/cards/crazy-time.webp" },
+        { "name": "Mega Wheel", "type": "Spin segments", "category": "live", "image": "images/webp/cards/mega-wheel.webp" },
+        { "name": "Monopoly Live", "type": "Board bonus round", "category": "live", "image": "images/webp/cards/crazy-time.webp" },
+        { "name": "Deal or No Deal Live", "type": "Briefcase ladder", "category": "live", "image": "images/webp/cards/mega-wheel.webp" }
+      ]
+    },
+    {
+      "id": "more",
+      "title": "More tags players search",
+      "subtitle": "Crash-style multipliers, cluster pays, and buy-bonus slots—always read regional rules.",
+      "games": [
+        { "name": "Crash / Aviator-style", "type": "Cash out before bust", "category": "slots", "image": "images/webp/cards/crazy-time.webp" },
+        { "name": "Cluster pays grid", "type": "Tumble chains", "category": "slots", "image": "images/webp/cards/sweet-bonanza.webp" },
+        { "name": "Bonus buy menu", "type": "Direct feature entry", "category": "slots", "image": "images/webp/cards/gates-of-olympus.webp" },
+        { "name": "High RTP shortlist", "type": "Info panel % check", "category": "slots", "image": "images/webp/cards/book-of-dead.webp" }
+      ]
+    }
+  ],
   "themes": [
     { "label": "Fishing & ocean", "examples": "Big Bass vibes, reeling in multipliers" },
     { "label": "Book & explorer", "examples": "Book of Dead-style adventures" },
@@ -88,6 +226,6 @@
     { "title": "Welcome boost", "desc": "Match + spins on hand-picked slots—check the card for games.", "image": "images/webp/promo-welcome-boost.webp" },
     { "title": "Weekend reloads", "desc": "Top up when you’re playing heavy—terms apply.", "image": "images/webp/promo-weekend-reloads.webp" },
     { "title": "Live cashback", "desc": "A cut back on live play—see promo for caps.", "image": "images/webp/promo-live-cashback.webp" },
-    { "title": "VIP lane", "text": "Bigger limits, faster reviews, your own host.", "image": "images/webp/promo-vip-lane.webp" }
+    { "title": "VIP lane", "desc": "Bigger limits, faster reviews, your own host.", "image": "images/webp/promo-vip-lane.webp" }
   ]
 }
