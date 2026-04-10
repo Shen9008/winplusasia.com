@@ -3,6 +3,8 @@
   "private": true,
   "description": "Static site for winplusasia.com — deploy to Cloudflare Pages with Wrangler",
   "scripts": {
+    "longform:merge": "node scripts/merge-longform.mjs",
+    "longform:count": "node scripts/count-main-words.mjs",
     "images:webp": "node scripts/optimize-images.mjs",
     "cf:login": "wrangler login",
     "cf:whoami": "wrangler whoami",
