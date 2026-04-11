@@ -12,10 +12,7 @@ const root = path.join(__dirname, '..');
 
 const pages = [
   ['index.html', 'index'],
-  ['products.html', 'products'],
-  ['promotions.html', 'promotions'],
   ['about-us.html', 'about'],
-  ['help-center.html', 'help'],
   ['contact.html', 'contact'],
   ['privacy-policy.html', 'privacy'],
   ['terms-conditions.html', 'terms'],

@@ -397,7 +397,7 @@
     }
 
     function load() {
-        fetch('config/site-content.json?v=20260416')
+        fetch('config/site-content.json?v=20260419')
             .then(function (r) {
                 return r.json();
             })
