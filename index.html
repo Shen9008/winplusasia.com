@@ -19,7 +19,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <meta property="og:title" content="WinPlus Casino Games &amp; Guides | WinPlus Asia">
@@ -87,7 +87,7 @@
     <script defer src="js/content-loader.js"></script>
     <script defer src="js/main.js"></script>
 </head>
-<body data-page="index">
+<body data-page="index" class="site">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS95HFR5"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -95,10 +95,10 @@
     <div id="partial-header"></div>
 
     <main id="main-content">
-        <section class="hero hero--player">
-            <div class="container">
-                <div class="hero__center">
-                    <p class="hero__eyebrow">WinPlus Asia</p>
+        <section class="hero hero--player" aria-label="WinPlus Asia introduction">
+            <div class="container hero__grid">
+                <div class="hero__intro">
+                    <p class="hero__eyebrow">WinPlus Asia · independent guides</p>
                     <h1 class="hero__title">Your next spin, hand, or bet—<span class="hero__accent">all in one place</span></h1>
                     <p class="hero__lead">Whether you searched <strong>WinPlus</strong>, <strong>WinPlus casino</strong>, or a game type—you get straight talk on slots, live dealers, and sports. Jackpots, Megaways, bonus buys, roulette, baccarat, blackjack, and game shows—pick what hits different tonight.</p>
                     <div class="hero__actions">
@@ -106,62 +106,74 @@
                         <a href="promotions.html" class="btn btn--secondary btn--lg">View bonuses</a>
                     </div>
                     <p class="hero__micro">Fast cash-outs · Top studios · Mobile-ready</p>
+
+                    <nav class="jump-strip" aria-label="On this page">
+                        <a class="jump-strip__link" href="#hub-facts">Facts &amp; figures</a>
+                        <a class="jump-strip__link" href="#hub-popular">Popular picks</a>
+                        <a class="jump-strip__link" href="#hub-mix">Lobby mix</a>
+                        <a class="jump-strip__link" href="#hub-themes">Themes</a>
+                        <a class="jump-strip__link" href="#hub-studios">Studios</a>
+                    </nav>
+
+                    <div class="stats-strip" id="facts">
+                        <div class="stat-pill" data-animate>
+                            <span class="stat-pill__val" data-wp-stat="totalGames">—</span>
+                            <span class="stat-pill__lbl">games</span>
+                        </div>
+                        <div class="stat-pill" data-animate>
+                            <span class="stat-pill__val" data-wp-stat="slotTitles">—</span>
+                            <span class="stat-pill__lbl">slots</span>
+                        </div>
+                        <div class="stat-pill" data-animate>
+                            <span class="stat-pill__val" data-wp-stat="liveTables">—</span>
+                            <span class="stat-pill__lbl">live tables</span>
+                        </div>
+                        <div class="stat-pill" data-animate>
+                            <span class="stat-pill__val" data-wp-stat="providers">—</span>
+                            <span class="stat-pill__lbl">providers</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span class="hero-meta__item"><strong data-wp-top-category>—</strong> · top lobby mix</span>
+                        <span class="hero-meta__item">Jackpots <strong data-wp-jackpot class="text-accent">—</strong></span>
+                        <span class="hero-meta__item">Megaways <strong data-wp-megaways class="text-accent">—</strong></span>
+                        <span class="hero-meta__item">Bonus buy <strong data-wp-bonusbuy class="text-accent">—</strong></span>
+                    </div>
+                    <p class="hero-rtp"><span data-wp-rtp-note>—</span></p>
                 </div>
 
                 <div class="hero__visual">
                     <img class="hero__img" src="images/webp/hero-home.webp" width="960" height="540" alt="WinPlus Asia — slots, live casino and sports" loading="eager" decoding="async" />
                 </div>
-
-                <div class="stats-strip" id="facts">
-                    <div class="stat-pill" data-animate>
-                        <span class="stat-pill__val" data-wp-stat="totalGames">—</span>
-                        <span class="stat-pill__lbl">games</span>
-                    </div>
-                    <div class="stat-pill" data-animate>
-                        <span class="stat-pill__val" data-wp-stat="slotTitles">—</span>
-                        <span class="stat-pill__lbl">slots</span>
-                    </div>
-                    <div class="stat-pill" data-animate>
-                        <span class="stat-pill__val" data-wp-stat="liveTables">—</span>
-                        <span class="stat-pill__lbl">live tables</span>
-                    </div>
-                    <div class="stat-pill" data-animate>
-                        <span class="stat-pill__val" data-wp-stat="providers">—</span>
-                        <span class="stat-pill__lbl">providers</span>
-                    </div>
-                </div>
-
-                <div class="hero-meta">
-                    <span class="hero-meta__item"><strong data-wp-top-category>—</strong> · top lobby mix</span>
-                    <span class="hero-meta__item">Jackpots <strong data-wp-jackpot class="text-accent">—</strong></span>
-                    <span class="hero-meta__item">Megaways <strong data-wp-megaways class="text-accent">—</strong></span>
-                    <span class="hero-meta__item">Bonus buy <strong data-wp-bonusbuy class="text-accent">—</strong></span>
-                </div>
-                <p class="hero-rtp"><span data-wp-rtp-note>—</span></p>
             </div>
         </section>
 
-        <section class="section section--muted section--tight" aria-labelledby="facts-figures-heading">
+        <section class="section section--muted section--tight" id="hub-facts" aria-labelledby="facts-figures-heading">
             <div class="container">
-                <div data-wp-facts-panel></div>
+                <p class="section-kicker">Catalogue &amp; trust snapshot</p>
+                <div class="facts-panel card-surface" data-wp-facts-panel></div>
             </div>
         </section>
 
         <section class="section section--tight" aria-labelledby="winplus-seo-heading">
-            <div class="container">
-                <header class="section-head section-head--center">
-                    <h2 id="winplus-seo-heading" class="section-head__title">WinPlus casino info you can verify</h2>
-                    <p class="section-head__sub"><strong>WinPlus Asia</strong> is an editorial publisher—we explain WinPlus-style lobbies (slots, live casino, sports) and how bonuses work. We link to independent help and regulator hubs for safer play; real-money gaming happens on licensed third-party platforms, not on this site.</p>
-                </header>
-                <div class="trust-callout">
-                    <h3 class="trust-callout__title">External trust &amp; safety resources</h3>
-                    <p class="trust-callout__text">For problem-gambling support: <a href="https://www.begambleaware.org" rel="noopener noreferrer">BeGambleAware</a>, <a href="https://www.gamcare.org.uk" rel="noopener noreferrer">GamCare</a>, <a href="https://www.gamblingtherapy.org" rel="noopener noreferrer">Gambling Therapy</a>, <a href="https://www.ncpgambling.org" rel="noopener noreferrer">NCPG (US)</a>. For how regulated markets protect players: <a href="https://www.gamblingcommission.gov.uk/" rel="noopener noreferrer">UK Gambling Commission</a>, <a href="https://www.mga.org.mt/" rel="noopener noreferrer">Malta Gaming Authority</a>. Our methodology: <a href="editorial-policy.html">editorial standards</a> · <a href="about-us.html">About WinPlus Asia</a>.</p>
+            <div class="container split-panels">
+                <div class="split-panels__main card-surface" id="hub-editorial">
+                    <header class="section-head">
+                        <h2 id="winplus-seo-heading" class="section-head__title">WinPlus casino info you can verify</h2>
+                        <p class="section-head__sub"><strong>WinPlus Asia</strong> is an editorial publisher—we explain WinPlus-style lobbies (slots, live casino, sports) and how bonuses work. Real-money gaming happens on licensed third-party platforms, not on this site.</p>
+                    </header>
                 </div>
+                <aside class="split-panels__aside trust-callout trust-callout--panel" aria-label="Help and regulators">
+                    <h3 class="trust-callout__title">Trust &amp; safety</h3>
+                    <p class="trust-callout__text">For problem-gambling support: <a href="https://www.begambleaware.org" rel="noopener noreferrer">BeGambleAware</a>, <a href="https://www.gamcare.org.uk" rel="noopener noreferrer">GamCare</a>, <a href="https://www.gamblingtherapy.org" rel="noopener noreferrer">Gambling Therapy</a>. Regulators: <a href="https://www.gamblingcommission.gov.uk/" rel="noopener noreferrer">UKGC</a>, <a href="https://www.mga.org.mt/" rel="noopener noreferrer">MGA</a>. <a href="editorial-policy.html">Editorial standards</a> · <a href="about-us.html">About us</a>.</p>
+                </aside>
             </div>
         </section>
 
-        <section class="section section--tight" aria-labelledby="popular-heading">
+        <section class="section section--tight" id="hub-popular" aria-labelledby="popular-heading">
             <div class="container">
+                <p class="section-kicker">Dynamic hub</p>
                 <header class="section-head section-head--center">
                     <h2 id="popular-heading" class="section-head__title">Hot right now</h2>
                     <p class="section-head__sub">Titles players come back to—slots and live picks side by side.</p>
@@ -170,8 +182,26 @@
             </div>
         </section>
 
-        <section class="section section--muted">
+        <section class="section section--band" id="hub-mix" aria-labelledby="infographic-heading">
             <div class="container">
+                <p class="section-kicker">Where players spend time</p>
+                <header class="section-head section-head--center">
+                    <h2 id="infographic-heading" class="section-head__title">Lobby mix (illustrative)</h2>
+                    <p class="section-head__sub">Slots vs live vs shows vs RNG tables—proportions shift by season and promos.</p>
+                </header>
+                <div class="infographic infographic--home" data-wp-infographic>
+                    <div>
+                        <h3 class="infographic__title" data-wp-infographic-title></h3>
+                        <div class="infographic__bar" aria-hidden="true"></div>
+                    </div>
+                    <ul class="infographic__legend"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--muted" id="hub-themes">
+            <div class="container">
+                <p class="section-kicker">Discovery</p>
                 <header class="section-head">
                     <h2 class="section-head__title">Themes you actually search for</h2>
                     <p class="section-head__sub">Tap a vibe—fishing, books, dragons, Japan, myths—or jump straight to Megaways and jackpots.</p>
@@ -200,8 +230,9 @@
             </div>
         </section>
 
-        <section class="section section--tight" id="providers">
+        <section class="section section--tight" id="hub-studios">
             <div class="container">
+                <p class="section-kicker">Providers</p>
                 <header class="section-head section-head--center">
                     <h2 class="section-head__title">Studios behind the reels &amp; tables</h2>
                     <p class="section-head__sub">Names you know—one account, full catalogue.</p>
