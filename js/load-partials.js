@@ -4,6 +4,9 @@
 (function () {
     'use strict';
 
+    /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
+    var WP_ASSET_VER = '20260406';
+
     var pathname = window.location.pathname || '';
     var isSubfolder = pathname.split('/').filter(Boolean).length > 1;
     var base = '';
@@ -48,12 +51,13 @@
     function run() {
         injectSvgSprite();
         var loadCta = document.body.getAttribute('data-cta') !== 'false';
+        var q = '?v=' + encodeURIComponent(WP_ASSET_VER);
         var fetches = [
-            fetch(base + 'partials/header.html').then(function (r) { return r.text(); }),
-            fetch(base + 'partials/footer.html').then(function (r) { return r.text(); })
+            fetch(base + 'partials/header.html' + q).then(function (r) { return r.text(); }),
+            fetch(base + 'partials/footer.html' + q).then(function (r) { return r.text(); })
         ];
         if (loadCta) {
-            fetches.push(fetch(base + 'partials/cta-banner.html').then(function (r) { return r.text(); }));
+            fetches.push(fetch(base + 'partials/cta-banner.html' + q).then(function (r) { return r.text(); }));
         }
         Promise.all(fetches).then(function (parts) {
             var headerHtml = rewriteLinks(parts[0]);
