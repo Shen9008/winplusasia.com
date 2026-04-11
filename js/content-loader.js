@@ -266,6 +266,88 @@
             .join('');
     }
 
+    function renderFactsPanel(root, factsFigures, stats) {
+        if (!factsFigures) return;
+        root.querySelectorAll('[data-wp-facts-panel]').forEach(function (mount) {
+            var metrics = factsFigures.metrics || [];
+            var metricsHtml = metrics
+                .map(function (m) {
+                    var val =
+                        m.statKey && stats && stats[m.statKey] != null
+                            ? stats[m.statKey]
+                            : m.value != null
+                              ? m.value
+                              : '—';
+                    return (
+                        '<div class="facts-metric" data-animate>' +
+                        '<span class="facts-metric__value">' +
+                        esc(String(val)) +
+                        '</span>' +
+                        '<span class="facts-metric__label">' +
+                        esc(m.label) +
+                        '</span></div>'
+                    );
+                })
+                .join('');
+            var t = factsFigures.trust || {};
+            var certList = Array.isArray(t.certifiedBy)
+                ? '<ul class="facts-trust__list">' +
+                  t.certifiedBy
+                      .map(function (c) {
+                          return '<li>' + esc(c) + '</li>';
+                      })
+                      .join('') +
+                  '</ul>'
+                : '';
+            mount.innerHTML =
+                '<header class="facts-panel__head">' +
+                '<h2 id="facts-figures-heading" class="facts-panel__title">' +
+                esc(factsFigures.title || 'Facts & figures') +
+                '</h2>' +
+                (factsFigures.subtitle
+                    ? '<p class="facts-panel__sub">' + esc(factsFigures.subtitle) + '</p>'
+                    : '') +
+                '</header>' +
+                '<div class="facts-metric-grid">' +
+                metricsHtml +
+                '</div>' +
+                '<div class="facts-trust">' +
+                '<dl class="facts-trust__dl">' +
+                '<dt class="facts-trust__dt">Licensed by</dt><dd class="facts-trust__dd">' +
+                esc(t.licensedBy || '') +
+                '</dd>' +
+                (t.certifiedByHeading
+                    ? '<dt class="facts-trust__dt">' +
+                      esc(t.certifiedByHeading) +
+                      '</dt><dd class="facts-trust__dd">' +
+                      certList +
+                      '</dd>'
+                    : '') +
+                (t.paymentsHeading
+                    ? '<dt class="facts-trust__dt">' +
+                      esc(t.paymentsHeading) +
+                      '</dt><dd class="facts-trust__dd">' +
+                      esc(t.payments || '') +
+                      '</dd>'
+                    : '') +
+                (t.payoutHeading
+                    ? '<dt class="facts-trust__dt">' +
+                      esc(t.payoutHeading) +
+                      '</dt><dd class="facts-trust__dd">' +
+                      esc(t.payoutSpeed || '') +
+                      '</dd>'
+                    : '') +
+                (t.mobileHeading
+                    ? '<dt class="facts-trust__dt">' +
+                      esc(t.mobileHeading) +
+                      '</dt><dd class="facts-trust__dd">' +
+                      esc(t.mobile || '') +
+                      '</dd>'
+                    : '') +
+                '</dl></div>';
+        });
+    }
+
     function renderThemes(root, themes) {
         var grid = root.querySelector('[data-wp-themes]');
         if (!grid || !themes) return;
@@ -302,6 +384,7 @@
         renderProviders(root, data.providers);
         renderPopular(root, data.popularGames);
         renderGamesByCategory(root, data.gamesByCategory);
+        renderFactsPanel(root, data.factsFigures, data.stats);
         renderThemes(root, data.themes);
         renderHotPromos(root, data.hotPromotionHighlights);
         renderPromos(root, data.promotionsTeaser);

@@ -8,11 +8,44 @@
     "totalGames": "2,800+",
     "slotTitles": "2,100+",
     "liveTables": "320+",
+    "liveCasinoGames": "320+",
     "providers": "60+",
+    "jackpotTitles": "180+",
+    "tableGames": "120+",
+    "fishingGames": "85+",
     "sportsMarkets": "40+",
     "avgPayoutHours": "Under 24h",
     "bonusOffers": "12+",
     "languages": "8+"
+  },
+  "factsFigures": {
+    "title": "WinPlus casino — facts & figures",
+    "subtitle": "Illustrative catalogue scope for a full WinPlus-style integration. Your licensed operator’s live lobby counts, licence, and payment rails are authoritative.",
+    "metrics": [
+      { "label": "Total games", "statKey": "totalGames" },
+      { "label": "Game providers", "statKey": "providers" },
+      { "label": "Jackpot & progressive titles", "statKey": "jackpotTitles" },
+      { "label": "RNG table games", "statKey": "tableGames" },
+      { "label": "Live casino tables", "statKey": "liveCasinoGames" },
+      { "label": "Fishing & hunter-style slots", "statKey": "fishingGames" }
+    ],
+    "trust": {
+      "licensedBy": "Licence is held by the operator where you play — common examples include Curaçao eGaming, Malta Gaming Authority (MGA), or PAGCOR. Always confirm the badge and licence number in the site footer before depositing.",
+      "certifiedByHeading": "Certified & tested by",
+      "certifiedBy": [
+        "Gaming Laboratories International (GLI)",
+        "eCOGRA",
+        "iTech Labs",
+        "BMM Testlabs",
+        "Technical Systems Testing (TST)"
+      ],
+      "paymentsHeading": "Payment options",
+      "payments": "Visa, Mastercard, bank transfer, Skrill, Neteller, other regional e-wallets, and cryptocurrency where permitted — availability and limits vary by country and operator.",
+      "payoutHeading": "Withdrawal speed",
+      "payoutSpeed": "Typical average under 24 hours after account verification (KYC); e-wallets and crypto often settle fastest, bank cards commonly 1–5 business days.",
+      "mobileHeading": "Mobile compatibility",
+      "mobile": "Responsive HTML5 lobby — works in Safari on iOS and Chrome on Android; many brands offer optional PWA or shortcut install with no mandatory app store download."
+    }
   },
   "topCategory": "Video slots & Megaways",
   "jackpotGames": "180+",

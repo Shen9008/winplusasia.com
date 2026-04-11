@@ -1281,6 +1281,113 @@ h2 {
     margin-top: 0.65rem;
 }
 
+/* WinPlus casino facts & figures (home + games) */
+.facts-panel__head {
+    margin-bottom: 1.35rem;
+    text-align: center;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.facts-panel__title {
+    font-size: 1.35rem;
+    margin: 0 0 0.5rem;
+}
+
+.facts-panel__sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.facts-metric-grid {
+    display: grid;
+    gap: 0.65rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+    .facts-metric-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .facts-metric-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.facts-metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.95rem 0.65rem;
+    text-align: center;
+}
+
+.facts-metric__value {
+    display: block;
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+.facts-metric__label {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    line-height: 1.35;
+}
+
+.facts-trust {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.facts-trust__dl {
+    margin: 0;
+    display: grid;
+    gap: 1.15rem;
+}
+
+@media (min-width: 720px) {
+    .facts-trust__dl {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 2rem;
+    }
+}
+
+.facts-trust__dt {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 0 0 0.4rem;
+}
+
+.facts-trust__dd {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.facts-trust__list {
+    margin: 0.25rem 0 0;
+    padding-left: 1.15rem;
+}
+
+.facts-trust__list li {
+    margin-bottom: 0.25rem;
+}
+
 .faq-item {
     border: 1px solid var(--border);
     border-radius: var(--radius);
