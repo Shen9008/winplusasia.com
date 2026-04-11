@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260408">
+    <link rel="stylesheet" href="css/style.css?v=20260413">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -31,8 +31,8 @@
         ]
     }
     </script>
-    <script defer src="js/load-partials.js?v=20260408"></script>
-    <script defer src="js/content-loader.js?v=20260408"></script>
+    <script defer src="js/load-partials.js?v=20260409"></script>
+    <script defer src="js/content-loader.js?v=20260412"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="products">
@@ -50,7 +50,7 @@
                     <h1>WinPlus casino games &amp; lobbies</h1>
                     <p>Looking for <strong>WinPlus</strong> slots, live tables, or sports? Here’s how each lobby breaks down—slots, real dealers, and odds in plain language.</p>
                     <nav class="jump-strip jump-strip--start" aria-label="On this page">
-                        <a class="jump-strip__link" href="#games-facts">Facts</a>
+                        <a class="jump-strip__link" href="#games-snapshot">Quick snapshot</a>
                         <a class="jump-strip__link" href="#games-popular">Popular</a>
                         <a class="jump-strip__link" href="#games-categories">By category</a>
                         <a class="jump-strip__link" href="#slots">Slots</a>
@@ -64,29 +64,90 @@
 
         <section class="section">
             <div class="container">
-                <p class="section-kicker section-kicker--left">Quick snapshot</p>
-                <div class="stats-grid stats-grid--dense mb-1" style="margin-bottom:1.5rem" id="games-stats">
-                    <div class="stat-card">
-                        <div class="stat-card__value" data-wp-stat="totalGames">—</div>
-                        <div class="stat-card__label">Total catalogue</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card__value" data-wp-stat="slotTitles">—</div>
-                        <div class="stat-card__label">RNG slots</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card__value" data-wp-stat="liveTables">—</div>
-                        <div class="stat-card__label">Live tables</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card__value" data-wp-stat="providers">—</div>
-                        <div class="stat-card__label">Studios</div>
+                <div class="quick-snapshot" id="games-snapshot" aria-labelledby="games-snapshot-heading">
+                    <header class="section-head section-head--left quick-snapshot__head">
+                        <p class="section-kicker">Quick snapshot</p>
+                        <h2 id="games-snapshot-heading" class="section-head__title">Hub figures at a glance</h2>
+                        <p class="section-head__sub">Illustrative catalogue scope—confirm live totals, licence, and payment rules in your operator’s authenticated lobby.</p>
+                    </header>
+                    <div class="snapshot-board">
+                        <div class="stats-grid stats-grid--dense snapshot-board__stats" id="games-stats">
+                            <div class="stat-card">
+                                <div class="stat-card__value" data-wp-stat="totalGames">2,800+</div>
+                                <div class="stat-card__label">Total catalogue</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value" data-wp-stat="slotTitles">2,100+</div>
+                                <div class="stat-card__label">RNG slots</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value" data-wp-stat="liveTables">320+</div>
+                                <div class="stat-card__label">Live tables</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value" data-wp-stat="providers">60+</div>
+                                <div class="stat-card__label">Studios</div>
+                            </div>
+                        </div>
+
+                        <div class="facts-panel card-surface" data-wp-facts-panel id="games-facts">
+                            <header class="facts-panel__head">
+                                <h2 id="facts-figures-heading" class="facts-panel__title">Catalogue &amp; trust snapshot</h2>
+                                <p class="facts-panel__sub">Illustrative catalogue scope for a full WinPlus-style integration. Your licensed operator’s live lobby counts, licence, and payment rails are authoritative.</p>
+                            </header>
+                            <div class="facts-metric-grid">
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">2,800+</span>
+                                    <span class="facts-metric__label">Total games</span>
+                                </div>
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">60+</span>
+                                    <span class="facts-metric__label">Game providers</span>
+                                </div>
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">180+</span>
+                                    <span class="facts-metric__label">Jackpot &amp; progressive titles</span>
+                                </div>
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">120+</span>
+                                    <span class="facts-metric__label">RNG table games</span>
+                                </div>
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">320+</span>
+                                    <span class="facts-metric__label">Live casino tables</span>
+                                </div>
+                                <div class="facts-metric">
+                                    <span class="facts-metric__value">85+</span>
+                                    <span class="facts-metric__label">Fishing &amp; hunter-style slots</span>
+                                </div>
+                            </div>
+                            <div class="facts-trust">
+                                <dl class="facts-trust__dl">
+                                    <dt class="facts-trust__dt">Licensed by</dt>
+                                    <dd class="facts-trust__dd">Licence is held by the operator where you play — common examples include Curaçao eGaming, Malta Gaming Authority (MGA), or PAGCOR. Always confirm the badge and licence number in the site footer before depositing.</dd>
+                                    <dt class="facts-trust__dt">Certified &amp; tested by</dt>
+                                    <dd class="facts-trust__dd">
+                                        <ul class="facts-trust__list">
+                                            <li>Gaming Laboratories International (GLI)</li>
+                                            <li>eCOGRA</li>
+                                            <li>iTech Labs</li>
+                                            <li>BMM Testlabs</li>
+                                            <li>Technical Systems Testing (TST)</li>
+                                        </ul>
+                                    </dd>
+                                    <dt class="facts-trust__dt">Payment options</dt>
+                                    <dd class="facts-trust__dd">Visa, Mastercard, bank transfer, Skrill, Neteller, other regional e-wallets, and cryptocurrency where permitted — availability and limits vary by country and operator.</dd>
+                                    <dt class="facts-trust__dt">Withdrawal speed</dt>
+                                    <dd class="facts-trust__dd">Typical average under 24 hours after account verification (KYC); e-wallets and crypto often settle fastest, bank cards commonly 1–5 business days.</dd>
+                                    <dt class="facts-trust__dt">Mobile compatibility</dt>
+                                    <dd class="facts-trust__dd">Responsive HTML5 lobby — works in Safari on iOS and Chrome on Android; many brands offer optional PWA or shortcut install with no mandatory app store download.</dd>
+                                </dl>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="facts-panel card-surface" data-wp-facts-panel id="games-facts" style="margin-bottom:2rem"></div>
-
-                <header class="section-head section-head--center" style="margin-top:2.5rem" id="games-popular">
+                <header class="section-head section-head--center" style="margin-top:1.75rem" id="games-popular">
                     <p class="section-kicker">Player traffic</p>
                     <h2 class="section-head__title">Popular games</h2>
                     <p class="section-head__sub">Titles players open most often in WinPlus-style lobbies—use your operator’s search to confirm availability in your region.</p>
@@ -110,9 +171,9 @@
                             <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Volatility filters (low to extreme)</li>
                         </ul>
                         <div class="pill-row">
-                            <span class="pill">Jackpots: <strong data-wp-jackpot class="text-gold">—</strong></span>
-                            <span class="pill">Megaways: <strong data-wp-megaways class="text-gold">—</strong></span>
-                            <span class="pill">Bonus buy: <strong data-wp-bonusbuy class="text-gold">—</strong></span>
+                            <span class="pill">Jackpots: <strong data-wp-jackpot class="text-gold">180+</strong></span>
+                            <span class="pill">Megaways: <strong data-wp-megaways class="text-gold">140+</strong></span>
+                            <span class="pill">Bonus buy: <strong data-wp-bonusbuy class="text-gold">95+</strong></span>
                         </div>
                     </article>
 
@@ -138,7 +199,7 @@
                         <svg class="icon" style="width:28px;height:28px" aria-hidden="true"><use href="#icon-sports"></use></svg>
                     </div>
                     <h2>Sportsbook</h2>
-                    <p>Pre-match and in-play across <strong data-wp-stat="sportsMarkets">—</strong>+ sport verticals with Asian &amp; European views, cash-out where available, and esports on major titles.</p>
+                    <p>Pre-match and in-play across <strong data-wp-stat="sportsMarkets">40</strong>+ sport verticals with Asian &amp; European views, cash-out where available, and esports on major titles.</p>
                     <ul class="feature-list">
                         <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Live odds updates</li>
                         <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Same-game parlays on selected leagues</li>

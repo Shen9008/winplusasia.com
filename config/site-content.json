@@ -227,6 +227,7 @@
   ],
   "listicle": {
     "title": "What you should expect from a top lobby",
+    "subtitle": "Basics every serious lobby should make obvious before you spin.",
     "items": [
       "RTP and rules one tap away inside each game",
       "You always see real balance vs bonus balance",
@@ -239,6 +240,7 @@
   },
   "steps": {
     "title": "Your first session in 4 moves",
+    "subtitle": "Verify, secure, fund, then play—most trusted brands follow the same flow.",
     "steps": [
       { "title": "Sign up", "text": "Email or mobile—verify and you’re in." },
       { "title": "Lock it down", "text": "Turn on 2FA. Set a deposit cap that feels right." },

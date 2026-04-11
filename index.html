@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260408">
+    <link rel="stylesheet" href="css/style.css?v=20260413">
 
     <meta property="og:title" content="WinPlus Casino Games &amp; Guides | WinPlus Asia">
     <meta property="og:description" content="Independent WinPlus &amp; WinPlus casino hub: slots, live tables, sports, bonuses &amp; responsible-gambling resources. 18+.">
@@ -83,8 +83,8 @@
         ]
     }
     </script>
-    <script defer src="js/load-partials.js?v=20260408"></script>
-    <script defer src="js/content-loader.js?v=20260408"></script>
+    <script defer src="js/load-partials.js?v=20260409"></script>
+    <script defer src="js/content-loader.js?v=20260412"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body data-page="index" class="site">
@@ -112,6 +112,8 @@
                         <a class="jump-strip__link" href="#hub-popular">Popular picks</a>
                         <a class="jump-strip__link" href="#hub-mix">Lobby mix</a>
                         <a class="jump-strip__link" href="#hub-themes">Themes</a>
+                        <a class="jump-strip__link" href="#hub-listicle">Checklist</a>
+                        <a class="jump-strip__link" href="#hub-steps">First session</a>
                         <a class="jump-strip__link" href="#hub-studios">Studios</a>
                     </nav>
 
@@ -184,64 +186,152 @@
         <section class="section section--band" id="hub-mix" aria-labelledby="infographic-heading">
             <div class="container">
                 <div class="infographic infographic--home" data-wp-infographic>
-                    <div class="infographic__intro">
+                    <header class="section-head section-head--center infographic__head">
                         <p class="section-kicker">Where play concentrates</p>
-                        <h2 id="infographic-heading" class="infographic__title" data-wp-infographic-title>Lobby mix (illustrative)</h2>
+                        <h2 id="infographic-heading" class="section-head__title" data-wp-infographic-title>Lobby mix (illustrative)</h2>
                         <p class="section-head__sub">Slots vs live vs shows vs RNG tables—proportions shift by season and promos.</p>
+                    </header>
+                    <div class="infographic__data">
                         <div class="infographic__bar" aria-hidden="true"></div>
+                        <ul class="infographic__legend"></ul>
                     </div>
-                    <ul class="infographic__legend"></ul>
                 </div>
             </div>
         </section>
 
-        <section class="section section--muted" id="hub-themes" aria-labelledby="hub-themes-heading">
+        <section class="section section--muted section--themes" id="hub-themes" aria-labelledby="hub-themes-heading">
             <div class="container">
                 <header class="section-head section-head--center">
                     <p class="section-kicker">Discovery</p>
                     <h2 id="hub-themes-heading" class="section-head__title">Themes you actually search for</h2>
                     <p class="section-head__sub">Tap a vibe—fishing, books, dragons, Japan, myths—or jump straight to Megaways and jackpots.</p>
                 </header>
-                <div class="grid-3" data-wp-themes></div>
-            </div>
-        </section>
-
-        <section class="section section--tight">
-            <div class="container container--narrow" data-wp-listicle>
-                <div class="player-card">
-                    <div class="ph ph--ribbon" aria-hidden="true"><span class="ph__tag">Checklist</span></div>
-                    <h2 class="player-card__title" data-wp-listicle-title>What you should expect from a top lobby</h2>
-                    <ol class="player-list"></ol>
+                <div class="themes-board">
+                    <div class="grid-3" data-wp-themes">
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-0" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Fishing &amp; ocean</h3>
+                            <p class="theme-card__examples">Big Bass vibes, reeling in multipliers</p>
+                        </div>
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-1" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Book &amp; explorer</h3>
+                            <p class="theme-card__examples">Book of Dead-style adventures</p>
+                        </div>
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-2" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Dragons &amp; Asia</h3>
+                            <p class="theme-card__examples">Dragon Hatch, Mahjong Ways</p>
+                        </div>
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-3" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Japan &amp; neon</h3>
+                            <p class="theme-card__examples">Sakura, samurai, Tokyo nights</p>
+                        </div>
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-4" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Egypt &amp; myths</h3>
+                            <p class="theme-card__examples">Gods, pyramids, epic spins</p>
+                        </div>
+                        <div class="theme-card">
+                            <div class="ph ph--theme ph--theme-5" aria-hidden="true"><span class="ph__tag">Theme</span></div>
+                            <h3 class="theme-card__label">Fruit &amp; retro</h3>
+                            <p class="theme-card__examples">Old-school reels, modern payouts</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section section--muted" aria-labelledby="steps-heading">
-            <div class="container" data-wp-steps>
-                <header class="section-head section-head--center">
-                    <h2 id="steps-heading" class="section-head__title" data-wp-steps-title>Your first session in 4 moves</h2>
-                    <p class="section-head__sub">From signup to first bet—no fluff.</p>
-                </header>
-                <div class="steps__track steps__track--simple"></div>
+        <section class="section section--tight section--listicle" id="hub-listicle" aria-labelledby="listicle-heading">
+            <div class="container container--narrow">
+                <div data-wp-listicle>
+                    <header class="section-head section-head--center">
+                        <p class="section-kicker">Checklist</p>
+                        <h2 id="listicle-heading" class="section-head__title" data-wp-listicle-title>What you should expect from a top lobby</h2>
+                        <p class="section-head__sub" data-wp-listicle-sub>Basics every serious lobby should make obvious before you spin.</p>
+                    </header>
+                    <div class="listicle-board">
+                        <ol class="player-list" aria-label="Lobby expectations"></ol>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section section--tight" id="hub-studios" aria-labelledby="hub-studios-heading">
+        <section class="section section--muted section--steps" id="hub-steps" aria-labelledby="steps-heading">
+            <div class="container">
+                <div data-wp-steps>
+                    <header class="section-head section-head--center">
+                        <p class="section-kicker">Getting started</p>
+                        <h2 id="steps-heading" class="section-head__title" data-wp-steps-title>Your first session in 4 moves</h2>
+                        <p class="section-head__sub" data-wp-steps-sub>Verify, secure, fund, then play—most trusted brands follow the same flow.</p>
+                    </header>
+                    <div class="steps-board">
+                        <div class="steps__track steps__track--simple">
+                            <div class="step-card step-card--simple">
+                                <div class="ph ph--step ph--step-0" aria-hidden="true"><span class="ph__tag">Step</span></div>
+                                <div class="step-card__n">1</div>
+                                <h3 class="step-card__title">Sign up</h3>
+                                <p class="step-card__text">Email or mobile—verify and you’re in.</p>
+                            </div>
+                            <div class="step-card step-card--simple">
+                                <div class="ph ph--step ph--step-1" aria-hidden="true"><span class="ph__tag">Step</span></div>
+                                <div class="step-card__n">2</div>
+                                <h3 class="step-card__title">Lock it down</h3>
+                                <p class="step-card__text">Turn on 2FA. Set a deposit cap that feels right.</p>
+                            </div>
+                            <div class="step-card step-card--simple">
+                                <div class="ph ph--step ph--step-2" aria-hidden="true"><span class="ph__tag">Step</span></div>
+                                <div class="step-card__n">3</div>
+                                <h3 class="step-card__title">Add funds</h3>
+                                <p class="step-card__text">E-wallet, bank, or card—pick what you trust.</p>
+                            </div>
+                            <div class="step-card step-card--simple">
+                                <div class="ph ph--step ph--step-3" aria-hidden="true"><span class="ph__tag">Step</span></div>
+                                <div class="step-card__n">4</div>
+                                <h3 class="step-card__title">Play your way</h3>
+                                <p class="step-card__text">Slots, live tables, or sports—same wallet, same login.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--tight section--studios" id="hub-studios" aria-labelledby="hub-studios-heading">
             <div class="container">
                 <header class="section-head section-head--center">
                     <p class="section-kicker">Studios &amp; providers</p>
                     <h2 id="hub-studios-heading" class="section-head__title">Studios behind the reels &amp; tables</h2>
                     <p class="section-head__sub">Names you know—one account, full catalogue.</p>
                 </header>
-                <div class="logo-strip" aria-hidden="true">
-                    <span class="ph ph--logo">PP</span>
-                    <span class="ph ph--logo">EV</span>
-                    <span class="ph ph--logo">PG</span>
-                    <span class="ph ph--logo">NE</span>
-                    <span class="ph ph--logo">BT</span>
-                    <span class="ph ph--logo">+</span>
+                <div class="studios-board">
+                    <div class="logo-strip" aria-hidden="true">
+                        <span class="ph ph--logo">PP</span>
+                        <span class="ph ph--logo">EV</span>
+                        <span class="ph ph--logo">PG</span>
+                        <span class="ph ph--logo">NE</span>
+                        <span class="ph ph--logo">BT</span>
+                        <span class="ph ph--logo">+</span>
+                    </div>
+                    <ul class="provider-list provider-list--compact" data-wp-providers>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Pragmatic Play</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Evolution</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> PG Soft</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> NetEnt</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Play'n GO</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Microgaming</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Red Tiger</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Hacksaw Gaming</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Big Time Gaming</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Nolimit City</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Relax Gaming</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Yggdrasil</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Quickspin</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Ezugi</li>
+                        <li><svg class="icon icon--sm" aria-hidden="true"><use href="#icon-star"></use></svg> Asia Gaming</li>
+                    </ul>
                 </div>
-                <ul class="provider-list provider-list--compact" data-wp-providers></ul>
             </div>
         </section>
 <!-- longform:start -->

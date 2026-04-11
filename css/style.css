@@ -484,29 +484,56 @@ h2 {
     color: var(--accent-2);
 }
 
-.infographic--home {
-    padding: 1.35rem 1.35rem 1.5rem;
-    margin-top: 0.5rem;
+/* Home lobby mix: heading full width, bar + legend paired (not legend beside tall text column) */
+.infographic.infographic--home {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1.35rem 1.6rem;
+    margin-top: 0;
     background: linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(34, 211, 238, 0.04) 50%, rgba(255, 255, 255, 0.02) 100%);
     border: 1px solid rgba(34, 211, 238, 0.15);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
 }
 
-.infographic__intro {
-    display: flex;
-    flex-direction: column;
+.infographic--home .infographic__head {
+    margin-bottom: 0;
+}
+
+.infographic--home .infographic__head .section-kicker {
+    margin-bottom: 0.4rem;
+}
+
+.infographic--home .infographic__head .section-head__title {
+    margin-bottom: 0.55rem;
+}
+
+.infographic--home .infographic__head .section-head__sub {
+    margin-bottom: 0;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.infographic--home .infographic__data {
+    display: grid;
+    gap: 1.15rem;
     align-items: center;
-    text-align: center;
+    width: 100%;
 }
 
-.infographic__intro .section-kicker {
-    margin-bottom: 0.35rem;
+@media (min-width: 640px) {
+    .infographic--home .infographic__data {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 1.5rem;
+    }
 }
 
-.infographic__intro .section-head__sub {
-    margin-bottom: 1rem;
-    max-width: 32rem;
+@media (max-width: 639px) {
+    .infographic--home .infographic__data .infographic__legend {
+        margin-top: 0.15rem;
+    }
 }
 
 .infographic__title {
@@ -969,6 +996,63 @@ h2 {
     font-size: 0.85rem;
     color: var(--muted);
     line-height: 1.45;
+}
+
+/* Home listicle — heading matches other bands; list sits in a single card */
+.section--listicle .section-head {
+    margin-bottom: 1.35rem;
+}
+
+.listicle-board {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(167, 139, 250, 0.04));
+    border: 1px solid rgba(167, 139, 250, 0.14);
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.2rem 1.25rem;
+    box-shadow: var(--shadow-card);
+}
+
+.listicle-board .player-list {
+    margin: 0;
+    padding: 0;
+}
+
+.listicle-board .player-list__item:first-child {
+    padding-top: 0.15rem;
+}
+
+/* Themes / steps / studios — same card shell as checklist; content also in HTML for no-JS */
+.themes-board,
+.steps-board,
+.studios-board {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.04), rgba(167, 139, 250, 0.03));
+    border: 1px solid rgba(167, 139, 250, 0.14);
+    border-radius: var(--radius-lg);
+    padding: 1.15rem 1.2rem 1.35rem;
+    box-shadow: var(--shadow-card);
+}
+
+.themes-board .grid-3 {
+    margin: 0;
+}
+
+.section--themes .section-head,
+.section--steps .section-head,
+.section--studios .section-head {
+    margin-bottom: 1.35rem;
+}
+
+.studios-board .logo-strip {
+    margin-bottom: 1.15rem;
+}
+
+.studios-board .provider-list {
+    justify-content: flex-start;
+}
+
+@media (min-width: 640px) {
+    .studios-board .provider-list {
+        justify-content: center;
+    }
 }
 
 /* Player listicle */
@@ -1532,6 +1616,34 @@ h2 {
     margin-top: 0.65rem;
 }
 
+/* Games page — Quick snapshot (stats + facts; JS rehydrates from site-content.json) */
+.quick-snapshot {
+    margin-bottom: 2.5rem;
+}
+
+.quick-snapshot__head {
+    margin-bottom: 1.35rem;
+    max-width: 38rem;
+}
+
+.quick-snapshot__head .section-head__title {
+    font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+}
+
+.snapshot-board {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+
+.snapshot-board__stats {
+    margin-bottom: 0;
+}
+
+.snapshot-board .facts-panel {
+    margin-bottom: 0;
+}
+
 /* WinPlus casino facts & figures (home + games) */
 .facts-panel__head {
     margin-bottom: 1.35rem;
@@ -1781,15 +1893,15 @@ h2 {
     line-height: 1.5;
 }
 
-/* Infographic (help page etc.) */
-.infographic {
+/* Infographic (help page etc.) — exclude home; home uses .infographic.infographic--home flex layout */
+.infographic:not(.infographic--home) {
     display: grid;
     gap: 1.25rem;
     align-items: center;
 }
 
 @media (min-width: 768px) {
-    .infographic {
+    .infographic:not(.infographic--home) {
         grid-template-columns: 1fr 1fr;
     }
 }

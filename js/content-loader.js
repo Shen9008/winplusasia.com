@@ -46,6 +46,8 @@
         if (!wrap || !data || !data.items) return;
         var title = wrap.querySelector('[data-wp-listicle-title]');
         if (title && data.title) title.textContent = data.title;
+        var sub = wrap.querySelector('[data-wp-listicle-sub]');
+        if (sub && data.subtitle) sub.textContent = data.subtitle;
         var ol = wrap.querySelector('ol');
         if (!ol) return;
         ol.innerHTML = data.items.map(function (t, i) {
@@ -64,6 +66,8 @@
         if (!wrap || !data || !data.steps) return;
         var title = wrap.querySelector('[data-wp-steps-title]');
         if (title && data.title) title.textContent = data.title;
+        var sub = wrap.querySelector('[data-wp-steps-sub]');
+        if (sub && data.subtitle) sub.textContent = data.subtitle;
         var track = wrap.querySelector('.steps__track');
         if (!track) return;
         track.innerHTML = data.steps
@@ -393,7 +397,7 @@
     }
 
     function load() {
-        fetch('config/site-content.json?v=20260408')
+        fetch('config/site-content.json?v=20260412')
             .then(function (r) {
                 return r.json();
             })

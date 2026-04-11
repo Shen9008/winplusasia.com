@@ -5,7 +5,7 @@
     'use strict';
 
     /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
-    var WP_ASSET_VER = '20260408';
+    var WP_ASSET_VER = '20260409';
 
     var pathname = window.location.pathname || '';
     var isSubfolder = pathname.split('/').filter(Boolean).length > 1;
@@ -50,7 +50,8 @@
 
     function run() {
         injectSvgSprite();
-        var loadCta = document.body.getAttribute('data-cta') !== 'false';
+        /* CTA partial off unless <body data-cta="true"> */
+        var loadCta = document.body.getAttribute('data-cta') === 'true';
         var q = '?v=' + encodeURIComponent(WP_ASSET_VER);
         var fetches = [
             fetch(base + 'partials/header.html' + q).then(function (r) { return r.text(); }),
