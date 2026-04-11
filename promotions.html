@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260416">
+    <link rel="stylesheet" href="css/style.css?v=20260418">
     <script defer src="js/load-partials.js?v=20260409"></script>
     <script defer src="js/content-loader.js?v=20260416"></script>
     <script defer src="js/main.js?v=20260408"></script>
@@ -85,7 +85,7 @@
                     <h2 class="section-head__title">What’s on the table</h2>
                     <p class="section-head__sub">Updated from our hub—your cashier always wins if something differs.</p>
                 </header>
-                <div data-wp-promos>
+                <div class="promo-grid" data-wp-promos>
                     <article class="promo-card">
                         <div class="promo-card__media"><img src="images/webp/promo-welcome-boost.webp" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>
                         <div class="promo-card__body">
@@ -119,14 +119,19 @@
                 <div class="player-card" style="margin-top:2rem">
                     <div class="ph ph--ribbon" aria-hidden="true"><span class="ph__tag">Read first</span></div>
                     <h2 class="player-card__title">Before you claim</h2>
-                    <ol class="player-list" style="list-style:none">
-                        <li class="player-list__item"><span class="player-list__mark">1</span><span class="player-list__text">Match % and cap — what hits your balance.</span></li>
-                        <li class="player-list__item"><span class="player-list__mark">2</span><span class="player-list__text">Wagering and which games count.</span></li>
-                        <li class="player-list__item"><span class="player-list__mark">3</span><span class="player-list__text">Max bet while the bonus is active.</span></li>
-                        <li class="player-list__item"><span class="player-list__mark">4</span><span class="player-list__text">Expiry — hours vs days changes everything.</span></li>
-                        <li class="player-list__item"><span class="player-list__mark">5</span><span class="player-list__text">Payment exclusions — some methods skip welcome packs.</span></li>
-                    </ol>
-                    <p style="margin-top:1.1rem;font-size:0.92rem;color:var(--muted);line-height:1.55">Only claim what fits your budget. If play stops feeling fun, <a href="https://www.begambleaware.org" rel="noopener noreferrer">BeGambleAware</a> and <a href="https://www.gamblingtherapy.org" rel="noopener noreferrer">Gambling Therapy</a> offer free help—see also our <a href="responsible-gaming.html">responsible gaming</a> hub.</p>
+                    <p class="player-card__intro">Tick these off in the promo card or terms—your cashier’s live rules override any summary.</p>
+                    <div class="listicle-board">
+                        <ol class="player-list" aria-label="Before you claim checklist">
+                            <li class="player-list__item"><span class="player-list__mark">1</span><span class="player-list__text">Match % and cap — what actually hits your balance.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">2</span><span class="player-list__text">Wagering (rollover) and which games or categories count.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">3</span><span class="player-list__text">Max bet while the bonus is active — breaching it can void the promo.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">4</span><span class="player-list__text">Expiry — hours vs days; unused spins often burn at the deadline.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">5</span><span class="player-list__text">Payment exclusions — some e-wallets or methods skip welcome packs.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">6</span><span class="player-list__text">Game weighting — slots, live, and tables rarely count equally toward rollover.</span></li>
+                            <li class="player-list__item"><span class="player-list__mark">7</span><span class="player-list__text">Opt-in, stacking, and KYC — whether you must tick a box, if another promo blocks this one, and ID timing before first withdrawal.</span></li>
+                        </ol>
+                    </div>
+                    <p class="player-card__footer">Only claim what fits your budget. If play stops feeling fun, <a href="https://www.begambleaware.org" rel="noopener noreferrer">BeGambleAware</a> and <a href="https://www.gamblingtherapy.org" rel="noopener noreferrer">Gambling Therapy</a> offer free help—see also our <a href="responsible-gaming.html">responsible gaming</a> hub.</p>
                 </div>
             </div>
         </section>
