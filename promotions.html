@@ -20,9 +20,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260413">
+    <link rel="stylesheet" href="css/style.css?v=20260416">
     <script defer src="js/load-partials.js?v=20260409"></script>
-    <script defer src="js/content-loader.js?v=20260412"></script>
+    <script defer src="js/content-loader.js?v=20260416"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="promotions">
@@ -51,14 +51,70 @@
                     <h2 class="section-head__title">Hot promotion highlights</h2>
                     <p class="section-head__sub">Snapshot of the deals players watch—verify amounts, wagering, and eligibility in your live promo centre.</p>
                 </header>
-                <div data-wp-hot-promos></div>
+                <div data-wp-hot-promos>
+                    <div class="hot-promo-strip">
+                        <article class="hot-promo-card">
+                            <span class="hot-promo-card__badge">Hot</span>
+                            <h3 class="hot-promo-card__title">Weekend reload ladder</h3>
+                            <p class="hot-promo-card__teaser">Stacked match tiers on Friday–Sunday when you top up—watch the max bet and game weighting before you opt in.</p>
+                            <p class="hot-promo-card__meta">Typical window: Fri 00:00 – Sun 23:59 (server time)</p>
+                        </article>
+                        <article class="hot-promo-card">
+                            <span class="hot-promo-card__badge">Players’ pick</span>
+                            <h3 class="hot-promo-card__title">Welcome pack: match + spins</h3>
+                            <p class="hot-promo-card__teaser">First-deposit match with spins on curated slots—e-wallets sometimes excluded; read the payment line first.</p>
+                            <p class="hot-promo-card__meta">Check min deposit &amp; cap in cashier</p>
+                        </article>
+                        <article class="hot-promo-card">
+                            <span class="hot-promo-card__badge">Live</span>
+                            <h3 class="hot-promo-card__title">Live-table cashback</h3>
+                            <p class="hot-promo-card__teaser">A percentage back on net live play over a defined period—caps and eligible tables vary by brand.</p>
+                            <p class="hot-promo-card__meta">Often excludes dual betting patterns</p>
+                        </article>
+                        <article class="hot-promo-card">
+                            <span class="hot-promo-card__badge">Limited</span>
+                            <h3 class="hot-promo-card__title">Drops &amp; wins–style races</h3>
+                            <p class="hot-promo-card__teaser">Prize pools on selected RNG titles—leaderboards may rank by multiplier or bet volume; set a ceiling before you chase ranks.</p>
+                            <p class="hot-promo-card__meta">Opt-in usually required</p>
+                        </article>
+                    </div>
+                </div>
 
                 <header class="section-head" style="margin-top:2.75rem">
                     <p class="section-kicker section-kicker--left">Full promo cards</p>
                     <h2 class="section-head__title">What’s on the table</h2>
                     <p class="section-head__sub">Updated from our hub—your cashier always wins if something differs.</p>
                 </header>
-                <div data-wp-promos></div>
+                <div data-wp-promos>
+                    <article class="promo-card">
+                        <div class="promo-card__media"><img src="images/webp/promo-welcome-boost.webp" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>
+                        <div class="promo-card__body">
+                            <h3>Welcome boost</h3>
+                            <p>Match + spins on hand-picked slots—check the card for games.</p>
+                        </div>
+                    </article>
+                    <article class="promo-card">
+                        <div class="promo-card__media"><img src="images/webp/promo-weekend-reloads.webp" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>
+                        <div class="promo-card__body">
+                            <h3>Weekend reloads</h3>
+                            <p>Top up when you’re playing heavy—terms apply.</p>
+                        </div>
+                    </article>
+                    <article class="promo-card">
+                        <div class="promo-card__media"><img src="images/webp/promo-live-cashback.webp" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>
+                        <div class="promo-card__body">
+                            <h3>Live cashback</h3>
+                            <p>A cut back on live play—see promo for caps.</p>
+                        </div>
+                    </article>
+                    <article class="promo-card">
+                        <div class="promo-card__media"><img src="images/webp/promo-vip-lane.webp" alt="" width="900" height="360" loading="lazy" decoding="async" /></div>
+                        <div class="promo-card__body">
+                            <h3>VIP lane</h3>
+                            <p>Bigger limits, faster reviews, your own host.</p>
+                        </div>
+                    </article>
+                </div>
 
                 <div class="player-card" style="margin-top:2rem">
                     <div class="ph ph--ribbon" aria-hidden="true"><span class="ph__tag">Read first</span></div>

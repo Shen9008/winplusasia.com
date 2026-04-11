@@ -536,6 +536,17 @@ h2 {
     }
 }
 
+.infographic--home .infographic__note {
+    margin: 0;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
 .infographic__title {
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 2.2vw, 1.45rem);
