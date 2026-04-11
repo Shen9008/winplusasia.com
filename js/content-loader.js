@@ -70,7 +70,7 @@
             .map(function (s, i) {
                 var pv = i % 4;
                 return (
-                    '<div class="step-card step-card--simple" data-animate>' +
+                    '<div class="step-card step-card--simple">' +
                     '<div class="ph ph--step ph--step-' +
                     pv +
                     '" aria-hidden="true"><span class="ph__tag">Step</span></div>' +
@@ -153,7 +153,7 @@
               v +
               '" aria-hidden="true"><span class="ph__tag">Art</span></div>';
         return (
-            '<article class="game-chip" data-animate data-category="' +
+            '<article class="game-chip" data-category="' +
             escAttr(g.category || '') +
             '">' +
             thumb +
@@ -220,7 +220,7 @@
                     var badge = h.badge ? '<span class="hot-promo-card__badge">' + esc(h.badge) + '</span>' : '';
                     var meta = h.meta ? '<p class="hot-promo-card__meta">' + esc(h.meta) + '</p>' : '';
                     return (
-                        '<article class="hot-promo-card" data-animate>' +
+                        '<article class="hot-promo-card">' +
                         badge +
                         '<h3 class="hot-promo-card__title">' +
                         esc(h.title) +
@@ -252,7 +252,7 @@
                       pv +
                       '" aria-hidden="true"><span class="ph__tag">Offer</span></div>';
                 return (
-                    '<article class="promo-card" data-animate>' +
+                    '<article class="promo-card">' +
                     thumb +
                     '<div class="promo-card__body">' +
                     '<h3>' +
@@ -279,7 +279,7 @@
                               ? m.value
                               : '—';
                     return (
-                        '<div class="facts-metric" data-animate>' +
+                        '<div class="facts-metric">' +
                         '<span class="facts-metric__value">' +
                         esc(String(val)) +
                         '</span>' +
@@ -355,7 +355,7 @@
             .map(function (t, i) {
                 var tv = i % 6;
                 return (
-                    '<div class="theme-card" data-animate>' +
+                    '<div class="theme-card">' +
                     '<div class="ph ph--theme ph--theme-' +
                     tv +
                     '" aria-hidden="true"><span class="ph__tag">Theme</span></div>' +

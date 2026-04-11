@@ -1,24 +1,4 @@
 (function () {
-    function observeAnimated() {
-        var opts = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
-        var obs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, opts);
-        document.querySelectorAll('[data-animate]:not(.is-visible)').forEach(function (el) {
-            if (!el.classList.contains('is-visible')) {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(14px)';
-                el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
-                obs.observe(el);
-            }
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
         document.body.addEventListener('click', function (e) {
             var toggle = e.target.closest('.mobile-menu-toggle');
@@ -39,7 +19,7 @@
                 var target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({ block: 'start' });
                     var menu = document.querySelector('.mobile-menu');
                     if (menu && menu.classList.contains('active')) {
                         menu.classList.remove('active');
@@ -65,10 +45,5 @@
 
     document.addEventListener('wp:partials-loaded', function () {
         initHeaderScroll();
-        observeAnimated();
-    });
-
-    document.addEventListener('wp:content-loaded', function () {
-        observeAnimated();
     });
 })();

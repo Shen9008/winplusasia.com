@@ -19,7 +19,7 @@
     "languages": "8+"
   },
   "factsFigures": {
-    "title": "WinPlus casino — facts & figures",
+    "title": "Catalogue & trust snapshot",
     "subtitle": "Illustrative catalogue scope for a full WinPlus-style integration. Your licensed operator’s live lobby counts, licence, and payment rails are authoritative.",
     "metrics": [
       { "label": "Total games", "statKey": "totalGames" },
@@ -247,7 +247,7 @@
     ]
   },
   "infographic": {
-    "title": "Where the action goes",
+    "title": "Lobby mix (illustrative)",
     "segments": [
       { "label": "Slots", "percent": 52, "color": "#f5c542" },
       { "label": "Live casino", "percent": 28, "color": "#ff6b6b" },
