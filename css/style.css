@@ -835,13 +835,16 @@ h2 {
 .promo-card__media {
     line-height: 0;
     border-bottom: 1px solid var(--border);
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.2));
 }
 
+/* Full artwork visible (no vertical crop); scales with card width */
 .promo-card__media img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
+    height: auto;
     display: block;
+    object-fit: contain;
+    object-position: center center;
 }
 
 /* Sections */
@@ -1592,6 +1595,11 @@ h2 {
 
 .promo-grid .promo-card__body {
     flex: 1;
+}
+
+/* Narrow columns: keep text readable; image scales down but stays uncropped */
+.promo-grid .promo-card__media {
+    flex-shrink: 0;
 }
 
 /* Dynamic hub: hot promo highlights (Bonuses page) */
