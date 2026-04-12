@@ -2162,8 +2162,52 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem 0.75rem;
-    margin-bottom: 1.25rem;
+    align-items: center;
+    gap: 0.65rem 1rem;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.logo-strip__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+}
+
+.logo-strip__img {
+    display: block;
+    max-width: min(9.5rem, 32vw);
+    max-height: 2rem;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    filter: brightness(1.08) contrast(1.02);
+    opacity: 0.94;
+}
+
+.logo-strip__img--png {
+    max-height: 2.25rem;
+}
+
+.logo-strip__item--more {
+    min-width: 2.5rem;
+}
+
+.logo-strip__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    background: #1a1c22;
 }
 
 .ph--logo {
