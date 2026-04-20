@@ -24,38 +24,66 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "@id": "https://winplusasia.com/about-us.html#webpage",
-        "url": "https://winplusasia.com/about-us.html",
-        "name": "About WinPlus Asia",
-        "description": "Publisher information and mission for winplusasia.com.",
-        "isPartOf": { "@id": "https://winplusasia.com/#website" },
-        "publisher": { "@id": "https://winplusasia.com/#organization" },
-        "mainEntity": { "@id": "https://winplusasia.com/#organization" },
-        "dateModified": "2026-04-06"
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://winplusasia.com/#organization",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino guides"],
+                "url": "https://winplusasia.com/",
+                "logo": { "@type": "ImageObject", "@id": "https://winplusasia.com/#logo", "url": "https://winplusasia.com/images/webp/logo.webp" },
+                "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online slots, live dealers, sports betting, and responsible gambling resources.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@winplusasia.com",
+                    "url": "https://winplusasia.com/contact.html",
+                    "availableLanguage": ["en"]
+                },
+                "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling", "Game providers"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://winplusasia.com/#website",
+                "url": "https://winplusasia.com/",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino hub"],
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "inLanguage": "en",
+                "description": "WinPlus casino and sports information: slots, live dealers, jackpots, Megaways, and bonus explainers for players in Asia and beyond.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": { "@type": "EntryPoint", "urlTemplate": "https://winplusasia.com/help-center.html?q={search_term_string}" },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://winplusasia.com/about-us.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://winplusasia.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "About WinPlus Asia", "item": "https://winplusasia.com/about-us.html" }
+                ]
+            },
+            {
+                "@type": "AboutPage",
+                "@id": "https://winplusasia.com/about-us.html#webpage",
+                "url": "https://winplusasia.com/about-us.html",
+                "name": "About WinPlus Asia",
+                "description": "Who publishes WinPlus Asia: mission, editorial independence, accuracy, player safety and E-E-A-T.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://winplusasia.com/#website" },
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "about": { "@id": "https://winplusasia.com/#organization" },
+                "mainEntity": { "@id": "https://winplusasia.com/#organization" },
+                "breadcrumb": { "@id": "https://winplusasia.com/about-us.html#breadcrumb" },
+                "dateModified": "2026-04-06"
+            }
+        ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://winplusasia.com/#organization",
-        "name": "WinPlus Asia",
-        "alternateName": ["WinPlus", "WinPlus casino guides"],
-        "url": "https://winplusasia.com/",
-        "logo": { "@type": "ImageObject", "url": "https://winplusasia.com/images/webp/logo.webp" },
-        "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online casino games, live dealers, and sports betting in Asia and beyond.",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer support",
-            "email": "hello@winplusasia.com",
-            "url": "https://winplusasia.com/contact.html"
-        },
-        "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling", "Game providers"]
-    }
-    </script>
-    <script defer src="js/load-partials.js?v=20260419"></script>
-    <script defer src="js/content-loader.js?v=20260419"></script>
+    <script defer src="js/load-partials.js?v=20260420"></script>
+    <script defer src="js/content-loader.js?v=20260420"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="about">
@@ -72,6 +100,13 @@
                     <h1>About WinPlus Asia &amp; our WinPlus casino guides</h1>
                     <p class="page-meta">Last updated: <time datetime="2026-04-06">6 April 2026</time></p>
                     <p>We publish <strong>winplusasia.com</strong> for people who search <strong>WinPlus</strong>, <strong>WinPlus casino</strong>, and game types together—straight answers on what’s in the lobby, how bonuses work, and where to get independent help—without marketing fluff.</p>
+                    <div class="hero__actions" style="margin:0.85rem 0 0.25rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play" data-wp-cta="about-hero">
+                            Visit the lobby
+                            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14 5l7 7-7 7-1.41-1.41L17.17 13H3v-2h14.17l-4.58-4.59L14 5z"/></svg>
+                        </a>
+                        <a href="products.html" class="btn btn--secondary">See our games guide</a>
+                    </div>
                 </div>
                 <div class="page-hero__media"><img src="images/webp/hero-home.webp" width="320" height="180" alt="" loading="lazy" decoding="async" /></div>
             </div>

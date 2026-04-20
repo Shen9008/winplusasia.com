@@ -5,7 +5,7 @@
     'use strict';
 
     /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
-    var WP_ASSET_VER = '20260419';
+    var WP_ASSET_VER = '20260420';
 
     var pathname = window.location.pathname || '';
     var isSubfolder = pathname.split('/').filter(Boolean).length > 1;
@@ -50,21 +50,41 @@
 
     function run() {
         injectSvgSprite();
-        /* CTA partial off unless <body data-cta="true"> */
-        var loadCta = document.body.getAttribute('data-cta') === 'true';
+        /* CTA partials: suppress on responsible/legal pages via <body data-cta="false"> */
+        var ctaAttr = document.body.getAttribute('data-cta');
+        var showCtaChrome = ctaAttr !== 'false';
+        /* Mid-page cta-banner only on opt-in pages (data-cta="true") */
+        var loadMidCta = ctaAttr === 'true';
         var q = '?v=' + encodeURIComponent(WP_ASSET_VER);
         var fetches = [
             fetch(base + 'partials/header.html' + q).then(function (r) { return r.text(); }),
             fetch(base + 'partials/footer.html' + q).then(function (r) { return r.text(); })
         ];
-        if (loadCta) {
+        var midCtaIdx = -1;
+        var topBannerIdx = -1;
+        var floatingIdx = -1;
+        if (loadMidCta) {
+            midCtaIdx = fetches.length;
             fetches.push(fetch(base + 'partials/cta-banner.html' + q).then(function (r) { return r.text(); }));
+        }
+        if (showCtaChrome) {
+            topBannerIdx = fetches.length;
+            fetches.push(fetch(base + 'partials/top-banner.html' + q).then(function (r) { return r.text(); }));
+            floatingIdx = fetches.length;
+            fetches.push(fetch(base + 'partials/floating-cta.html' + q).then(function (r) { return r.text(); }));
         }
         Promise.all(fetches).then(function (parts) {
             var headerHtml = rewriteLinks(parts[0]);
             var footerHtml = rewriteLinks(parts[1]);
             var headerPlaceholder = document.getElementById('partial-header');
             var footerPlaceholder = document.getElementById('partial-footer');
+            if (topBannerIdx > -1 && parts[topBannerIdx]) {
+                var topWrap = document.createElement('div');
+                topWrap.innerHTML = rewriteLinks(parts[topBannerIdx]);
+                while (topWrap.firstChild) {
+                    document.body.insertBefore(topWrap.firstChild, document.body.firstChild);
+                }
+            }
             if (headerPlaceholder) {
                 var temp = document.createElement('div');
                 temp.innerHTML = headerHtml;
@@ -77,14 +97,21 @@
             if (footerPlaceholder) {
                 footerPlaceholder.outerHTML = footerHtml;
             }
-            if (loadCta && parts[2]) {
+            if (midCtaIdx > -1 && parts[midCtaIdx]) {
                 var main = document.getElementById('main-content');
-                var bannerHtml = rewriteLinks(parts[2]);
+                var bannerHtml = rewriteLinks(parts[midCtaIdx]);
                 if (main) {
                     var firstSection = main.querySelector('section');
                     if (firstSection) {
                         firstSection.insertAdjacentHTML('afterend', bannerHtml);
                     }
+                }
+            }
+            if (floatingIdx > -1 && parts[floatingIdx]) {
+                var floatWrap = document.createElement('div');
+                floatWrap.innerHTML = rewriteLinks(parts[floatingIdx]);
+                while (floatWrap.firstChild) {
+                    document.body.appendChild(floatWrap.firstChild);
                 }
             }
             setActiveNav();

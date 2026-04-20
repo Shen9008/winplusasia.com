@@ -21,7 +21,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=20260421">
-    <script defer src="js/load-partials.js?v=20260419"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://winplusasia.com/#organization",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino guides"],
+                "url": "https://winplusasia.com/",
+                "logo": { "@type": "ImageObject", "@id": "https://winplusasia.com/#logo", "url": "https://winplusasia.com/images/webp/logo.webp" },
+                "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online slots, live dealers, sports betting, and responsible gambling resources.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@winplusasia.com",
+                    "url": "https://winplusasia.com/contact.html",
+                    "availableLanguage": ["en"]
+                },
+                "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://winplusasia.com/#website",
+                "url": "https://winplusasia.com/",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino hub"],
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "inLanguage": "en",
+                "description": "WinPlus casino and sports information: slots, live dealers, jackpots, Megaways, and bonus explainers for players in Asia and beyond.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": { "@type": "EntryPoint", "urlTemplate": "https://winplusasia.com/help-center.html?q={search_term_string}" },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://winplusasia.com/responsible-gaming.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://winplusasia.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Responsible gaming", "item": "https://winplusasia.com/responsible-gaming.html" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://winplusasia.com/responsible-gaming.html#webpage",
+                "url": "https://winplusasia.com/responsible-gaming.html",
+                "name": "Responsible Gaming | WinPlus Casino — Limits, Help & Resources | WinPlus Asia",
+                "description": "WinPlus and WinPlus casino responsible play: deposit limits, time-outs, self-exclusion, warning signs, and international help resources.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://winplusasia.com/#website" },
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "about": { "@type": "Thing", "name": "Responsible gambling" },
+                "breadcrumb": { "@id": "https://winplusasia.com/responsible-gaming.html#breadcrumb" },
+                "dateModified": "2026-04-05"
+            }
+        ]
+    }
+    </script>
+    <script defer src="js/load-partials.js?v=20260420"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="responsible" data-cta="false">
@@ -35,6 +95,7 @@
         <div class="page-hero">
             <div class="container">
                 <h1>Responsible gaming &amp; WinPlus casino play</h1>
+                <p class="page-meta">Last updated: <time datetime="2026-04-05">5 April 2026</time></p>
                 <p>Whether you found us through <strong>WinPlus</strong> or <strong>WinPlus casino</strong> searches, the rule is the same: gambling should be entertainment, not a way to solve money problems. If it stops being fun, pause and use the tools below.</p>
             </div>
         </div>

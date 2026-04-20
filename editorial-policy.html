@@ -24,29 +24,64 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://winplusasia.com/#organization",
-        "name": "WinPlus Asia",
-        "alternateName": ["WinPlus", "WinPlus casino guides"],
-        "url": "https://winplusasia.com/",
-        "logo": { "@type": "ImageObject", "url": "https://winplusasia.com/images/webp/logo.webp" }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://winplusasia.com/#organization",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino guides"],
+                "url": "https://winplusasia.com/",
+                "logo": { "@type": "ImageObject", "@id": "https://winplusasia.com/#logo", "url": "https://winplusasia.com/images/webp/logo.webp" },
+                "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online slots, live dealers, sports betting, and responsible gambling resources.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@winplusasia.com",
+                    "url": "https://winplusasia.com/contact.html",
+                    "availableLanguage": ["en"]
+                },
+                "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://winplusasia.com/#website",
+                "url": "https://winplusasia.com/",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino hub"],
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "inLanguage": "en",
+                "description": "WinPlus casino and sports information: slots, live dealers, jackpots, Megaways, and bonus explainers for players in Asia and beyond.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": { "@type": "EntryPoint", "urlTemplate": "https://winplusasia.com/help-center.html?q={search_term_string}" },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://winplusasia.com/editorial-policy.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://winplusasia.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Editorial standards", "item": "https://winplusasia.com/editorial-policy.html" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://winplusasia.com/editorial-policy.html#webpage",
+                "url": "https://winplusasia.com/editorial-policy.html",
+                "name": "Editorial Standards | WinPlus Asia",
+                "description": "How WinPlus Asia creates WinPlus and WinPlus casino guides: expertise, corrections, independence from operators, and responsible gambling messaging.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://winplusasia.com/#website" },
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "about": { "@type": "Thing", "name": "Editorial guidelines" },
+                "breadcrumb": { "@id": "https://winplusasia.com/editorial-policy.html#breadcrumb" },
+                "dateModified": "2026-04-06"
+            }
+        ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://winplusasia.com/editorial-policy.html#webpage",
-        "url": "https://winplusasia.com/editorial-policy.html",
-        "name": "Editorial Standards | WinPlus Asia",
-        "description": "Editorial methodology and accuracy standards for WinPlus Asia.",
-        "isPartOf": { "@id": "https://winplusasia.com/#website" },
-        "publisher": { "@id": "https://winplusasia.com/#organization" },
-        "about": { "@type": "Thing", "name": "Editorial guidelines" },
-        "dateModified": "2026-04-06"
-    }
-    </script>
-    <script defer src="js/load-partials.js?v=20260419"></script>
+    <script defer src="js/load-partials.js?v=20260420"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="editorial" data-cta="false">

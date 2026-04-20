@@ -21,11 +21,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=20260421">
-    <script defer src="js/load-partials.js?v=20260419"></script>
-    <script defer src="js/content-loader.js?v=20260419"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://winplusasia.com/#organization",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino guides"],
+                "url": "https://winplusasia.com/",
+                "logo": { "@type": "ImageObject", "@id": "https://winplusasia.com/#logo", "url": "https://winplusasia.com/images/webp/logo.webp" },
+                "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online slots, live dealers, sports betting, and responsible gambling resources.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@winplusasia.com",
+                    "url": "https://winplusasia.com/contact.html",
+                    "availableLanguage": ["en"]
+                },
+                "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://winplusasia.com/#website",
+                "url": "https://winplusasia.com/",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino hub"],
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "inLanguage": "en",
+                "description": "WinPlus casino and sports information: slots, live dealers, jackpots, Megaways, and bonus explainers for players in Asia and beyond.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": { "@type": "EntryPoint", "urlTemplate": "https://winplusasia.com/help-center.html?q={search_term_string}" },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://winplusasia.com/promotions.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://winplusasia.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Bonuses & offers", "item": "https://winplusasia.com/promotions.html" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://winplusasia.com/promotions.html#webpage",
+                "url": "https://winplusasia.com/promotions.html",
+                "name": "WinPlus Casino Bonuses & Offers | WinPlus Asia",
+                "description": "WinPlus casino bonuses: welcome offers, reloads, live cashback and VIP-style deals—how they work and what to check in the terms before you claim.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://winplusasia.com/#website" },
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "breadcrumb": { "@id": "https://winplusasia.com/promotions.html#breadcrumb" },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://winplusasia.com/images/webp/hero-promos.webp",
+                    "width": 960,
+                    "height": 540
+                },
+                "dateModified": "2026-04-05"
+            }
+        ]
+    }
+    </script>
+    <script defer src="js/load-partials.js?v=20260420"></script>
+    <script defer src="js/content-loader.js?v=20260420"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
-<body class="site" data-page="promotions">
+<body class="site" data-page="promotions" data-cta="true">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS95HFR5"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -38,7 +103,15 @@
                 <div class="page-hero__copy">
                     <p class="page-hero__kicker">Bonuses hub</p>
                     <h1>WinPlus casino bonuses &amp; offers</h1>
+                    <p class="page-meta">Last updated: <time datetime="2026-04-05">5 April 2026</time></p>
                     <p>Deals change—below is the kind of lineup you can expect for <strong>WinPlus</strong>-style play. Tap through to the live promo page for today’s numbers and rules.</p>
+                    <div class="hero__actions" style="margin:0.9rem 0 0.25rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--lg" data-wp-cta="bonuses-hero">
+                            Claim &amp; play now
+                            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14 5l7 7-7 7-1.41-1.41L17.17 13H3v-2h14.17l-4.58-4.59L14 5z"/></svg>
+                        </a>
+                        <a href="products.html" class="btn btn--secondary">Browse games</a>
+                    </div>
                 </div>
                 <div class="page-hero__media"><img src="images/webp/hero-promos.webp" width="320" height="180" alt="" loading="lazy" decoding="async" /></div>
             </div>
@@ -58,24 +131,36 @@
                             <h3 class="hot-promo-card__title">Weekend reload ladder</h3>
                             <p class="hot-promo-card__teaser">Stacked match tiers on Friday–Sunday when you top up—watch the max bet and game weighting before you opt in.</p>
                             <p class="hot-promo-card__meta">Typical window: Fri 00:00 – Sun 23:59 (server time)</p>
+                            <div class="hot-promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="hot-promo-reload">Claim &amp; play</a>
+                            </div>
                         </article>
                         <article class="hot-promo-card">
                             <span class="hot-promo-card__badge">Players’ pick</span>
                             <h3 class="hot-promo-card__title">Welcome pack: match + spins</h3>
                             <p class="hot-promo-card__teaser">First-deposit match with spins on curated slots—e-wallets sometimes excluded; read the payment line first.</p>
                             <p class="hot-promo-card__meta">Check min deposit &amp; cap in cashier</p>
+                            <div class="hot-promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="hot-promo-welcome">Grab welcome pack</a>
+                            </div>
                         </article>
                         <article class="hot-promo-card">
                             <span class="hot-promo-card__badge">Live</span>
                             <h3 class="hot-promo-card__title">Live-table cashback</h3>
                             <p class="hot-promo-card__teaser">A percentage back on net live play over a defined period—caps and eligible tables vary by brand.</p>
                             <p class="hot-promo-card__meta">Often excludes dual betting patterns</p>
+                            <div class="hot-promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="hot-promo-live">Play live tables</a>
+                            </div>
                         </article>
                         <article class="hot-promo-card">
                             <span class="hot-promo-card__badge">Limited</span>
                             <h3 class="hot-promo-card__title">Drops &amp; wins–style races</h3>
                             <p class="hot-promo-card__teaser">Prize pools on selected RNG titles—leaderboards may rank by multiplier or bet volume; set a ceiling before you chase ranks.</p>
                             <p class="hot-promo-card__meta">Opt-in usually required</p>
+                            <div class="hot-promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="hot-promo-drops">Join the race</a>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -91,6 +176,9 @@
                         <div class="promo-card__body">
                             <h3>Welcome boost</h3>
                             <p>Match + spins on hand-picked slots—check the card for games.</p>
+                            <div class="promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="promo-welcome">Claim &amp; play</a>
+                            </div>
                         </div>
                     </article>
                     <article class="promo-card">
@@ -98,6 +186,9 @@
                         <div class="promo-card__body">
                             <h3>Weekend reloads</h3>
                             <p>Top up when you’re playing heavy—terms apply.</p>
+                            <div class="promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="promo-reload">Reload &amp; play</a>
+                            </div>
                         </div>
                     </article>
                     <article class="promo-card">
@@ -105,6 +196,9 @@
                         <div class="promo-card__body">
                             <h3>Live cashback</h3>
                             <p>A cut back on live play—see promo for caps.</p>
+                            <div class="promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="promo-cashback">Play live</a>
+                            </div>
                         </div>
                     </article>
                     <article class="promo-card">
@@ -112,6 +206,9 @@
                         <div class="promo-card__body">
                             <h3>VIP lane</h3>
                             <p>Bigger limits, faster reviews, your own host.</p>
+                            <div class="promo-card__cta">
+                                <a href="https://reffpa.com/L?tag=d_5505047m_1236c_&amp;site=5505047&amp;ad=1236" target="_blank" rel="sponsored noopener noreferrer" class="btn btn--play btn--sm" data-wp-cta="promo-vip">Join VIP</a>
+                            </div>
                         </div>
                     </article>
                 </div>

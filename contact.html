@@ -24,26 +24,63 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://winplusasia.com/#organization",
-        "name": "WinPlus Asia",
-        "alternateName": ["WinPlus", "WinPlus casino guides"],
-        "url": "https://winplusasia.com/",
-        "logo": { "@type": "ImageObject", "url": "https://winplusasia.com/images/webp/logo.webp" }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://winplusasia.com/#organization",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino guides"],
+                "url": "https://winplusasia.com/",
+                "logo": { "@type": "ImageObject", "@id": "https://winplusasia.com/#logo", "url": "https://winplusasia.com/images/webp/logo.webp" },
+                "description": "Independent publisher of WinPlus and WinPlus casino-style guides: online slots, live dealers, sports betting, and responsible gambling resources.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@winplusasia.com",
+                    "url": "https://winplusasia.com/contact.html",
+                    "availableLanguage": ["en"]
+                },
+                "knowsAbout": ["Online slots", "Live casino", "Sports betting", "Responsible gambling"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://winplusasia.com/#website",
+                "url": "https://winplusasia.com/",
+                "name": "WinPlus Asia",
+                "alternateName": ["WinPlus", "WinPlus casino hub"],
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "inLanguage": "en",
+                "description": "WinPlus casino and sports information: slots, live dealers, jackpots, Megaways, and bonus explainers for players in Asia and beyond.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": { "@type": "EntryPoint", "urlTemplate": "https://winplusasia.com/help-center.html?q={search_term_string}" },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://winplusasia.com/contact.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://winplusasia.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://winplusasia.com/contact.html" }
+                ]
+            },
+            {
+                "@type": "ContactPage",
+                "@id": "https://winplusasia.com/contact.html#webpage",
+                "url": "https://winplusasia.com/contact.html",
+                "name": "Contact | WinPlus Asia",
+                "description": "Contact WinPlus Asia for editorial corrections, privacy requests, and general enquiries about winplusasia.com.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://winplusasia.com/#website" },
+                "publisher": { "@id": "https://winplusasia.com/#organization" },
+                "breadcrumb": { "@id": "https://winplusasia.com/contact.html#breadcrumb" },
+                "dateModified": "2026-04-05"
+            }
+        ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "@id": "https://winplusasia.com/contact.html#webpage",
-        "url": "https://winplusasia.com/contact.html",
-        "name": "Contact | WinPlus Asia",
-        "isPartOf": { "@id": "https://winplusasia.com/#website" },
-        "publisher": { "@id": "https://winplusasia.com/#organization" }
-    }
-    </script>
-    <script defer src="js/load-partials.js?v=20260419"></script>
+    <script defer src="js/load-partials.js?v=20260420"></script>
     <script defer src="js/main.js?v=20260408"></script>
 </head>
 <body class="site" data-page="contact" data-cta="false">
@@ -57,6 +94,7 @@
         <div class="page-hero">
             <div class="container">
                 <h1>Contact</h1>
+                <p class="page-meta">Last updated: <time datetime="2026-04-05">5 April 2026</time></p>
                 <p>Use the details below for questions about this website, our editorial policy, or privacy. For account or payment issues with a gambling operator, please contact that operator’s support directly.</p>
             </div>
         </div>
