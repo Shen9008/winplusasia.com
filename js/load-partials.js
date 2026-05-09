@@ -5,7 +5,7 @@
     'use strict';
 
     /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
-    var WP_ASSET_VER = '20260420';
+    var WP_ASSET_VER = '20260509';
 
     var pathname = window.location.pathname || '';
     var isSubfolder = pathname.split('/').filter(Boolean).length > 1;

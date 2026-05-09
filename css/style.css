@@ -2472,3 +2472,143 @@ h2 {
 .inline-promo__actions {
     flex-shrink: 0;
 }
+
+/* ---------------------------------------------------------------------------
+   Contact-us callout (Help page)
+   --------------------------------------------------------------------------- */
+.contact-callout {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.4rem;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.12), transparent 55%),
+        linear-gradient(160deg, rgba(99, 102, 241, 0.06) 0%, rgba(6, 7, 12, 0) 100%),
+        var(--surface);
+}
+
+.contact-callout__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-callout__copy {
+    flex: 1 1 22rem;
+    min-width: 0;
+}
+
+.contact-callout__kicker {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+}
+
+.contact-callout__title {
+    margin: 0 0 0.55rem;
+    font-size: clamp(1.15rem, 2.3vw, 1.4rem);
+    color: var(--text);
+}
+
+.contact-callout__text {
+    margin: 0 0 0.85rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
+    max-width: 44rem;
+}
+
+.contact-callout__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.contact-callout__list li {
+    line-height: 1.45;
+}
+
+.contact-callout__list strong {
+    color: var(--text);
+    margin-right: 0.25rem;
+}
+
+.contact-callout__email {
+    color: var(--accent);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.contact-callout__email:hover,
+.contact-callout__email:focus-visible {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.contact-callout__action {
+    flex-shrink: 0;
+}
+
+.contact-callout__btn {
+    gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .contact-callout {
+        padding: 1.1rem 1.05rem;
+    }
+    .contact-callout__action {
+        width: 100%;
+    }
+    .contact-callout__btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Footer contact-us strip
+   --------------------------------------------------------------------------- */
+.footer__contact {
+    margin: 1.25rem 0 0.75rem;
+    padding: 0.95rem 1.1rem;
+    border: 1px solid rgba(167, 139, 250, 0.28);
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 7, 12, 0.2) 100%);
+}
+
+.footer__contact-heading {
+    margin: 0 0 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+}
+
+.footer__contact-text {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.footer__contact-email {
+    color: var(--accent);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.footer__contact-email:hover,
+.footer__contact-email:focus-visible {
+    color: var(--text);
+    text-decoration: underline;
+}
