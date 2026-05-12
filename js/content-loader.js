@@ -4,13 +4,83 @@
 (function () {
     'use strict';
 
+    /**
+     * When fetch fails (e.g. file://), JSON is malformed, or keys are missing,
+     * hydrate facts + headline stats so [data-wp-facts-panel] is never stuck empty.
+     * Keep in sync with config/site-content.json (stats + factsFigures).
+     */
+    var CONTENT_FALLBACK = {
+        stats: {
+            totalGames: '2,800+',
+            slotTitles: '2,100+',
+            liveTables: '320+',
+            liveCasinoGames: '320+',
+            providers: '60+',
+            jackpotTitles: '180+',
+            tableGames: '120+',
+            fishingGames: '85+',
+            sportsMarkets: '40+',
+            avgPayoutHours: 'Under 24h',
+            bonusOffers: '12+',
+            languages: '8+'
+        },
+        factsFigures: {
+            title: 'Catalogue & trust snapshot',
+            subtitle:
+                'Illustrative catalogue scope for a full WinPlus-style integration. Your licensed operator\u2019s live lobby counts, licence, and payment rails are authoritative.',
+            metrics: [
+                { label: 'Total games', statKey: 'totalGames' },
+                { label: 'Game providers', statKey: 'providers' },
+                { label: 'Jackpot & progressive titles', statKey: 'jackpotTitles' },
+                { label: 'RNG table games', statKey: 'tableGames' },
+                { label: 'Live casino tables', statKey: 'liveCasinoGames' },
+                { label: 'Fishing & hunter-style slots', statKey: 'fishingGames' }
+            ],
+            trust: {
+                licensedBy:
+                    'Licence is held by the operator where you play — common examples include Curaçao eGaming, Malta Gaming Authority (MGA), or PAGCOR. Always confirm the badge and licence number in the site footer before depositing, and cross-check the regulator\u2019s public register when in doubt.',
+                certifiedByHeading: 'Certified & tested by',
+                certifiedBy: [
+                    'Gaming Laboratories International (GLI)',
+                    'eCOGRA',
+                    'iTech Labs',
+                    'BMM Testlabs',
+                    'Technical Systems Testing (TST)'
+                ],
+                paymentsHeading: 'Payment options',
+                payments:
+                    'Visa, Mastercard, bank transfer, Skrill, Neteller, other regional e-wallets, and cryptocurrency where permitted — availability and limits vary by country and operator.',
+                payoutHeading: 'Withdrawal speed',
+                payoutSpeed:
+                    'Typical average under 24 hours after account verification (KYC); e-wallets and crypto often settle fastest, bank cards commonly 1\u20135 business days.',
+                mobileHeading: 'Mobile compatibility',
+                mobile:
+                    'Responsive HTML5 lobby — works in Safari on iOS and Chrome on Android; many brands offer optional PWA or shortcut install with no mandatory app store download.'
+            }
+        }
+    };
+
+    function mergeFallback(raw) {
+        var d = raw && typeof raw === 'object' ? raw : {};
+        var out = Object.assign({}, d);
+        out.stats = Object.assign(
+            {},
+            CONTENT_FALLBACK.stats,
+            d.stats && typeof d.stats === 'object' ? d.stats : {}
+        );
+        if (!d.factsFigures || typeof d.factsFigures !== 'object') {
+            out.factsFigures = CONTENT_FALLBACK.factsFigures;
+        }
+        return out;
+    }
+
     function esc(s) {
         var d = document.createElement('div');
         d.textContent = s;
         return d.innerHTML;
     }
 
-    /** Local /images/webp/**/*.webp paths only — never esc() URLs into src. */
+    // Paths must be images/webp/.../*.webp only — never esc() URLs into src.
     function safeImgSrc(u) {
         if (u == null || u === '') return '';
         var s = String(u).trim().replace(/[\r\n\u0000]/g, '').replace(/^\/+/, '');
@@ -270,20 +340,138 @@
             .join('');
     }
 
+    function wrapFactsMetricSvg(paths) {
+        return (
+            '<svg class="facts-metric__svg" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">' +
+            paths +
+            '</svg>'
+        );
+    }
+
+    // Icons keyed by metric statKey (see config/site-content.json factsFigures.metrics)
+    var FACTS_METRIC_ICONS = {
+        totalGames: wrapFactsMetricSvg(
+            '<rect x="3.5" y="3.5" width="6.25" height="6.25" rx="1.5" stroke="currentColor" fill="none" stroke-width="1.65"/>' +
+                '<rect x="14.25" y="3.5" width="6.25" height="6.25" rx="1.5" stroke="currentColor" fill="none" stroke-width="1.65"/>' +
+                '<rect x="3.5" y="14.25" width="6.25" height="6.25" rx="1.5" stroke="currentColor" fill="none" stroke-width="1.65"/>' +
+                '<rect x="14.25" y="14.25" width="6.25" height="6.25" rx="1.5" stroke="currentColor" fill="none" stroke-width="1.65"/>'
+        ),
+        providers: wrapFactsMetricSvg(
+            '<circle cx="8" cy="10" r="2.85" stroke="currentColor" fill="rgba(167,139,250,0.08)" stroke-width="1.6"/>' +
+                '<circle cx="16" cy="10" r="2.85" stroke="currentColor" fill="rgba(167,139,250,0.08)" stroke-width="1.6"/>' +
+                '<circle cx="12" cy="16.5" r="2.85" stroke="currentColor" fill="rgba(167,139,250,0.08)" stroke-width="1.6"/>' +
+                '<path d="M9.9 12.05l2.1 3.3M13.95 14.85l2.15-3.25" stroke="currentColor" fill="none" stroke-width="1.35" stroke-linecap="round"/>'
+        ),
+        jackpotTitles: wrapFactsMetricSvg(
+            '<path d="M12 3.75l1.82 6.57h6.52l-5 3.93 1.93 7-5.27-4.06L6.73 21.25l1.93-7-5-3.93h6.52L12 3.75z" stroke="currentColor" fill="rgba(167,139,250,0.1)" stroke-width="1.45" stroke-linejoin="round"/>'
+        ),
+        tableGames: wrapFactsMetricSvg(
+            '<path d="M5.25 12.85c0-3.5 3-6.75 6.75-6.75S18.75 9.36 18.75 12.85" stroke="currentColor" fill="none" stroke-width="1.65" stroke-linecap="round"/>' +
+                '<ellipse cx="12" cy="12.85" rx="6.75" ry="2.65" stroke="currentColor" fill="rgba(167,139,250,0.06)" stroke-width="1.6"/>' +
+                '<path d="M8.6 14.95v5.3M15.4 14.95v5.3" stroke="currentColor" fill="none" stroke-width="1.65" stroke-linecap="round"/>'
+        ),
+        liveCasinoGames: wrapFactsMetricSvg(
+            '<circle cx="12" cy="12" r="9" stroke="currentColor" fill="rgba(167,139,250,0.06)" stroke-width="1.5"/>' +
+                '<path d="M10.4 9.85l6 2.95-6 2.95v-5.9z" fill="currentColor"/>'
+        ),
+        liveTables: wrapFactsMetricSvg(
+            '<circle cx="12" cy="12" r="9" stroke="currentColor" fill="rgba(167,139,250,0.06)" stroke-width="1.5"/>' +
+                '<path d="M10.4 9.85l6 2.95-6 2.95v-5.9z" fill="currentColor"/>'
+        ),
+        fishingGames: wrapFactsMetricSvg(
+            '<path d="M4.6 13.95c2.05-3.35 6.6-5.2 11.05-3.25l3.1-1.75-.05 5.95-3.05-1.8c-.95.42-2 .72-3.05.92" stroke="currentColor" fill="none" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>' +
+                '<circle cx="7.1" cy="13.2" r=".95" fill="currentColor"/>'
+        ),
+        _default: wrapFactsMetricSvg(
+            '<path d="M4.85 17.85V11.35M12 17.85V7.95m7.15 9.9V5.95" stroke="currentColor" fill="none" stroke-width="1.85" stroke-linecap="round"/>'
+        )
+    };
+
+    var TRUST_LIST_CHECK_SVG =
+        '<svg class="facts-trust__check-icon" viewBox="0 0 14 14" width="14" height="14" aria-hidden="true" focusable="false">' +
+        '<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12.207 4.793a1 1 0 010 1.414l-5.25 5.25a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 111.414-1.414L6.23 9.086l4.793-4.793a1 1 0 011.414 0z"/>' +
+        '</svg>';
+
+    function factsMetricIconHtml(statKey) {
+        var k = statKey && typeof statKey === 'string' ? statKey : '';
+        return FACTS_METRIC_ICONS[k] || FACTS_METRIC_ICONS._default;
+    }
+
+    function initFactsPanelMotion(root) {
+        var panels = root.querySelectorAll('[data-wp-facts-panel]');
+        if (!panels.length) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        panels.forEach(function (panel) {
+            var cards = panel.querySelectorAll('.facts-metric');
+            var trust = panel.querySelector('.facts-trust');
+            function revealAll() {
+                cards.forEach(function (c) {
+                    c.classList.add('facts-metric--visible');
+                });
+                if (trust) trust.classList.add('facts-trust--visible');
+            }
+            if (reduce || !('IntersectionObserver' in window)) {
+                revealAll();
+                return;
+            }
+            var pending = cards.length;
+            var ioCards = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        e.target.classList.add('facts-metric--visible');
+                        ioCards.unobserve(e.target);
+                        pending -= 1;
+                        if (pending <= 0 && trust && !trust.classList.contains('facts-trust--visible')) {
+                            window.setTimeout(function () {
+                                trust.classList.add('facts-trust--visible');
+                            }, 120);
+                        }
+                    });
+                },
+                { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+            );
+            cards.forEach(function (c) {
+                ioCards.observe(c);
+            });
+            if (!trust) return;
+            var ioTrust = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        e.target.classList.add('facts-trust--visible');
+                        ioTrust.unobserve(e.target);
+                    });
+                },
+                { root: null, rootMargin: '0px 0px -5% 0px', threshold: 0.08 }
+            );
+            ioTrust.observe(trust);
+        });
+    }
+
     function renderFactsPanel(root, factsFigures, stats) {
         if (!factsFigures) return;
         root.querySelectorAll('[data-wp-facts-panel]').forEach(function (mount) {
             var metrics = factsFigures.metrics || [];
             var metricsHtml = metrics
-                .map(function (m) {
+                .map(function (m, i) {
                     var val =
                         m.statKey && stats && stats[m.statKey] != null
                             ? stats[m.statKey]
                             : m.value != null
                               ? m.value
                               : '—';
+                    var sk = m.statKey || '';
+                    var di = Math.min(i, 12);
                     return (
-                        '<div class="facts-metric">' +
+                        '<div class="facts-metric" data-stat="' +
+                        escAttr(sk) +
+                        '" style="--fm-i:' +
+                        di +
+                        '">' +
+                        '<span class="facts-metric__icon-wrap" aria-hidden="true">' +
+                        factsMetricIconHtml(sk) +
+                        '</span>' +
                         '<span class="facts-metric__value">' +
                         esc(String(val)) +
                         '</span>' +
@@ -298,7 +486,13 @@
                 ? '<ul class="facts-trust__list">' +
                   t.certifiedBy
                       .map(function (c) {
-                          return '<li>' + esc(c) + '</li>';
+                          return (
+                              '<li><span class="facts-trust__check" aria-hidden="true">' +
+                              TRUST_LIST_CHECK_SVG +
+                              '</span><span>' +
+                              esc(c) +
+                              '</span></li>'
+                          );
                       })
                       .join('') +
                   '</ul>'
@@ -375,35 +569,39 @@
     }
 
     function run(data) {
+        var merged = mergeFallback(data);
         var root = document.getElementById('main-content') || document.body;
-        fillStats(root, data.stats);
-        fillText(root, '[data-wp-top-category]', data.topCategory);
-        fillText(root, '[data-wp-jackpot]', data.jackpotGames);
-        fillText(root, '[data-wp-megaways]', data.megawaysTitles);
-        fillText(root, '[data-wp-bonusbuy]', data.bonusBuyGames);
-        fillText(root, '[data-wp-rtp-note]', data.highRTPNote);
-        renderListicle(root, data.listicle);
-        renderSteps(root, data.steps);
-        renderInfographic(root, data.infographic);
-        renderProviders(root, data.providers);
-        renderPopular(root, data.popularGames);
-        renderGamesByCategory(root, data.gamesByCategory);
-        renderFactsPanel(root, data.factsFigures, data.stats);
-        renderThemes(root, data.themes);
-        renderHotPromos(root, data.hotPromotionHighlights);
-        renderPromos(root, data.promotionsTeaser);
+        fillStats(root, merged.stats);
+        fillText(root, '[data-wp-top-category]', merged.topCategory);
+        fillText(root, '[data-wp-jackpot]', merged.jackpotGames);
+        fillText(root, '[data-wp-megaways]', merged.megawaysTitles);
+        fillText(root, '[data-wp-bonusbuy]', merged.bonusBuyGames);
+        fillText(root, '[data-wp-rtp-note]', merged.highRTPNote);
+        renderListicle(root, merged.listicle);
+        renderSteps(root, merged.steps);
+        renderInfographic(root, merged.infographic);
+        renderProviders(root, merged.providers);
+        renderPopular(root, merged.popularGames);
+        renderGamesByCategory(root, merged.gamesByCategory);
+        renderFactsPanel(root, merged.factsFigures, merged.stats);
+        renderThemes(root, merged.themes);
+        renderHotPromos(root, merged.hotPromotionHighlights);
+        renderPromos(root, merged.promotionsTeaser);
+
+        initFactsPanelMotion(root);
 
         document.dispatchEvent(new CustomEvent('wp:content-loaded'));
     }
 
     function load() {
-        fetch('config/site-content.json?v=20260419')
+        fetch('/config/site-content.json?v=20260419')
             .then(function (r) {
+                if (!r.ok) throw new Error('Config fetch failed');
                 return r.json();
             })
             .then(run)
             .catch(function () {
-                document.dispatchEvent(new CustomEvent('wp:content-loaded'));
+                run(null);
             });
     }
 

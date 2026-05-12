@@ -47,6 +47,16 @@ for (const [src, dest, opts] of tasks) {
   console.log('OK', dest, '←', src);
 }
 
+/* SEO / perf: blog OG & hero cover (was ~600KB PNG) → compact WebP */
+const blogDefaultPng = path.join(imagesDir, 'blog-default.png');
+if (fs.existsSync(blogDefaultPng)) {
+  await sharp(blogDefaultPng)
+    .resize(1200, 630, { fit: 'inside', withoutEnlargement: true })
+    .webp({ quality: 82, effort: 5 })
+    .toFile(path.join(outDir, 'blog-default.webp'));
+  console.log('OK blog-default.webp ← blog-default.png');
+}
+
 const favSrc = path.join(imagesDir, 'favicon.png');
 if (fs.existsSync(favSrc)) {
   await sharp(favSrc)

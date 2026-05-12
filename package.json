@@ -3,15 +3,26 @@
   "private": true,
   "description": "Static site for winplusasia.com — deploy to Cloudflare Pages with Wrangler",
   "scripts": {
+    "sync": "node scripts/content-sync.js",
+    "sync:all": "node scripts/content-sync.js --all",
+    "sync:doctor": "node scripts/sync-doctor.js",
+    "backfill": "node scripts/backfill-internal-links.js",
+    "backfill:force": "node scripts/backfill-internal-links.js --force",
+    "audit:links": "node scripts/audit-internal-links.js",
+    "fix:blog-urls": "node scripts/normalize-blog-page-urls.js",
+    "deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main",
     "longform:merge": "node scripts/merge-longform.mjs",
     "longform:count": "node scripts/count-main-words.mjs",
     "images:webp": "node scripts/optimize-images.mjs",
     "cf:login": "wrangler login",
     "cf:whoami": "wrangler whoami",
     "pages:create": "wrangler pages project create winplusasia --production-branch main",
-    "pages:deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main"
+    "pages:deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main",
+    "serve": "serve ."
   },
   "devDependencies": {
+    "dotenv": "^16.5.0",
+    "serve": "^14.2.6",
     "sharp": "^0.34.5",
     "wrangler": "^4.28.0"
   }

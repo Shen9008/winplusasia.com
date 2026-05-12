@@ -5,14 +5,30 @@
     'use strict';
 
     /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
-    var WP_ASSET_VER = '20260509';
+    var WP_ASSET_VER = '20260512';
 
-    var pathname = window.location.pathname || '';
-    var isSubfolder = pathname.split('/').filter(Boolean).length > 1;
-    var base = '';
+    /** Fetch text only when HTTP OK — avoids injecting 404 HTML into the page from wrong relative paths. */
+    function fetchText(url) {
+        return fetch(url).then(function (r) {
+            if (!r.ok) throw new Error('partial fetch failed ' + r.status + ' ' + url);
+            return r.text();
+        });
+    }
 
+    /**
+     * Partials assume they live at site root (index.html, images/...). Injected into /blog/slug/ etc.,
+     * bare relative href/src would resolve under /blog/ and 404. Force same-origin root-relative URLs.
+     */
     function rewriteLinks(html) {
-        return html;
+        if (!html || typeof html !== 'string') return html;
+        return html.replace(/\b(href|src)="([^"]*)"/gi, function (full, attr, path) {
+            var p = String(path || '').trim();
+            if (!p || p.charAt(0) === '#' || p.charAt(0) === '/') return full;
+            if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(p)) return full;
+            /* data:, blob:, etc. */
+            if (/^[a-z][a-z0-9+.-]*:/i.test(p)) return full;
+            return attr + '="/' + p.replace(/^\/+/, '') + '"';
+        });
     }
 
     function setActiveNav() {
@@ -44,6 +60,10 @@
             '<symbol id="icon-phone" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></symbol>' +
             '<symbol id="icon-megaways" viewBox="0 0 24 24" fill="currentColor"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></symbol>' +
             '<symbol id="icon-trophy" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></symbol>' +
+            '<symbol id="icon-home" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></symbol>' +
+            '<symbol id="icon-terms" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></symbol>' +
+            '<symbol id="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></symbol>' +
+            '<symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></symbol>' +
             '</defs></svg>';
         document.body.insertBefore(wrap.firstChild, document.body.firstChild);
     }
@@ -53,25 +73,22 @@
         /* CTA partials: suppress on responsible/legal pages via <body data-cta="false"> */
         var ctaAttr = document.body.getAttribute('data-cta');
         var showCtaChrome = ctaAttr !== 'false';
-        /* Mid-page cta-banner only on opt-in pages (data-cta="true") */
+        /* CTA banner at bottom of main on opt-in pages (data-cta="true") */
         var loadMidCta = ctaAttr === 'true';
         var q = '?v=' + encodeURIComponent(WP_ASSET_VER);
-        var fetches = [
-            fetch(base + 'partials/header.html' + q).then(function (r) { return r.text(); }),
-            fetch(base + 'partials/footer.html' + q).then(function (r) { return r.text(); })
-        ];
+        var fetches = [fetchText('/partials/header.html' + q), fetchText('/partials/footer.html' + q)];
         var midCtaIdx = -1;
         var topBannerIdx = -1;
         var floatingIdx = -1;
         if (loadMidCta) {
             midCtaIdx = fetches.length;
-            fetches.push(fetch(base + 'partials/cta-banner.html' + q).then(function (r) { return r.text(); }));
+            fetches.push(fetchText('/partials/cta-banner.html' + q));
         }
         if (showCtaChrome) {
             topBannerIdx = fetches.length;
-            fetches.push(fetch(base + 'partials/top-banner.html' + q).then(function (r) { return r.text(); }));
+            fetches.push(fetchText('/partials/top-banner.html' + q));
             floatingIdx = fetches.length;
-            fetches.push(fetch(base + 'partials/floating-cta.html' + q).then(function (r) { return r.text(); }));
+            fetches.push(fetchText('/partials/floating-cta.html' + q));
         }
         Promise.all(fetches).then(function (parts) {
             var headerHtml = rewriteLinks(parts[0]);
@@ -101,10 +118,7 @@
                 var main = document.getElementById('main-content');
                 var bannerHtml = rewriteLinks(parts[midCtaIdx]);
                 if (main) {
-                    var firstSection = main.querySelector('section');
-                    if (firstSection) {
-                        firstSection.insertAdjacentHTML('afterend', bannerHtml);
-                    }
+                    main.insertAdjacentHTML('beforeend', bannerHtml);
                 }
             }
             if (floatingIdx > -1 && parts[floatingIdx]) {
