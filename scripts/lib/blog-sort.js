@@ -8,13 +8,15 @@ function timeMs(iso) {
 }
 
 /**
- * Latest sync first (`synced_at` desc), then `published_date` desc, then slug (stable).
+ * Blog index order: `published_date` desc, `cms_updated_at` desc, `synced_at` desc, slug.
  */
 function sortBlogsByLatestSyncFirst(a, b) {
-  const ds = timeMs(b.synced_at) - timeMs(a.synced_at);
-  if (ds !== 0) return ds;
   const dp = timeMs(b.published_date) - timeMs(a.published_date);
   if (dp !== 0) return dp;
+  const du = timeMs(b.cms_updated_at) - timeMs(a.cms_updated_at);
+  if (du !== 0) return du;
+  const ds = timeMs(b.synced_at) - timeMs(a.synced_at);
+  if (ds !== 0) return ds;
   return String(b.slug).localeCompare(String(a.slug));
 }
 

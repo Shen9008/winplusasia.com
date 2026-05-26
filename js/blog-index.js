@@ -13,10 +13,12 @@
     }
 
     function sortPosts(a, b) {
-        var ds = timeMs(b.synced_at) - timeMs(a.synced_at);
-        if (ds !== 0) return ds;
         var dp = timeMs(b.published_date) - timeMs(a.published_date);
         if (dp !== 0) return dp;
+        var du = timeMs(b.cms_updated_at) - timeMs(a.cms_updated_at);
+        if (du !== 0) return du;
+        var ds = timeMs(b.synced_at) - timeMs(a.synced_at);
+        if (ds !== 0) return ds;
         return String(b.slug).localeCompare(String(a.slug));
     }
 

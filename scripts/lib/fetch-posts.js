@@ -32,7 +32,7 @@ function getPostsSyncConfig(opts = {}) {
   if (rawKey === undefined || rawKey === null) {
     filterKey = DEFAULT_FILTER_KEY;
   } else {
-    filterKey = String(rawKey).trim();
+    filterKey = String(rawKey).trim() || DEFAULT_FILTER_KEY;
   }
 
   const applySiteFilter = Boolean(siteDomain && !skipFilter && filterKey);
@@ -132,8 +132,37 @@ async function fetchPosts(opts = {}) {
   return allPosts;
 }
 
+/**
+ * Fail fast when CI requires a site filter (SYNC_REQUIRE_SITE_FILTER=1).
+ */
+function assertStrictSiteFilter() {
+  const required = /^1|true|yes$/i.test(String(process.env.SYNC_REQUIRE_SITE_FILTER || '').trim());
+  if (!required) return;
+
+  const cfg = getPostsSyncConfig();
+  const errors = [];
+
+  if (!cfg.siteDomain) {
+    errors.push('SITE_DOMAIN is required when SYNC_REQUIRE_SITE_FILTER=1.');
+  }
+  if (cfg.skipFilter) {
+    errors.push('SKIP_POSTS_SITE_FILTER must not be enabled when SYNC_REQUIRE_SITE_FILTER=1.');
+  }
+  if (!cfg.filterKey) {
+    errors.push('POSTS_SITE_FILTER_KEY is empty when SYNC_REQUIRE_SITE_FILTER=1.');
+  }
+  if (cfg.siteDomain && !cfg.skipFilter && !cfg.applySiteFilter) {
+    errors.push('Site filter is not applied — check SITE_DOMAIN and POSTS_SITE_FILTER_KEY.');
+  }
+
+  if (errors.length) {
+    throw new Error(`Strict site filter check failed:\n  - ${errors.join('\n  - ')}`);
+  }
+}
+
 module.exports = {
   fetchPosts,
   getPostsSyncConfig,
   buildSamplePostsUrl,
+  assertStrictSiteFilter,
 };
