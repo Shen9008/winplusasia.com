@@ -13,14 +13,14 @@
     "backfill:force": "node scripts/backfill-internal-links.js --force",
     "audit:links": "node scripts/audit-internal-links.js",
     "fix:blog-urls": "node scripts/normalize-blog-page-urls.js",
-    "deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main",
+    "deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main --skip-caching",
     "longform:merge": "node scripts/merge-longform.mjs",
     "longform:count": "node scripts/count-main-words.mjs",
     "images:webp": "node scripts/optimize-images.mjs",
     "cf:login": "wrangler login",
     "cf:whoami": "wrangler whoami",
     "pages:create": "wrangler pages project create winplusasia --production-branch main",
-    "pages:deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main",
+    "pages:deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main --skip-caching",
     "serve": "serve ."
   },
   "devDependencies": {
