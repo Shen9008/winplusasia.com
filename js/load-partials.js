@@ -5,7 +5,7 @@
     'use strict';
 
     /** Bumped when CSS/JS/partials change — busts browser cache on fetch. */
-    var WP_ASSET_VER = '20260614';
+    var WP_ASSET_VER = '20260615';
 
     /** Fetch text only when HTTP OK — avoids injecting 404 HTML into the page from wrong relative paths. */
     function fetchText(url) {
