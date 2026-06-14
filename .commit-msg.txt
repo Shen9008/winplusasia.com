@@ -1,0 +1,11 @@
+design: Pro Max Liquid Glass Luxe UI redesign for WinPlus Asia
+
+Applies UI UX Pro Max design system (obsidian + liquid gold, Cormorant/Montserrat,
+glass morphism, bento-style cards) across the full site.
+
+- New css/pro-max.css: floating glass header, gold CTAs, mesh hero, glass cards
+- New js/interactions.js: scroll reveal, stat counters, card tilt, scroll progress
+- Header: floating pill nav, gold Play Now CTA, scroll progress bar, mobile play CTA
+- Index: animated mesh background, trust marquee, staggered game grid reveals
+- Linked pro-max.css + interactions.js on all pages and blog articles
+- Asset version bumped to v=20260614

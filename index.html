@@ -32,7 +32,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260526">
+    <link rel="stylesheet" href="css/style.css?v=20260614">
+    <link rel="stylesheet" href="css/pro-max.css?v=20260614">
 
     <meta property="og:title" content="WinPlus Casino Asia — Slots, Live Dealer &amp; Sports | WinPlus Asia">
     <meta property="og:description"
@@ -119,9 +120,10 @@
         ]
     }
     </script>
-    <script defer src="js/load-partials.js?v=20260523"></script>
-    <script defer src="js/content-loader.js?v=20260523"></script>
-    <script defer src="js/main.js?v=20260523"></script>
+    <script defer src="js/load-partials.js?v=20260614"></script>
+    <script defer src="js/content-loader.js?v=20260614"></script>
+    <script defer src="js/main.js?v=20260614"></script>
+    <script defer src="js/interactions.js?v=20260614"></script>
 </head>
 
 <body data-page="index" class="site" data-cta="true">
@@ -133,8 +135,13 @@
 
     <main id="main-content">
         <section class="hero hero--player hero--aurora" aria-label="WinPlus Asia introduction">
+            <div class="mesh-bg" aria-hidden="true">
+                <div class="mesh-bg__orb mesh-bg__orb--1"></div>
+                <div class="mesh-bg__orb mesh-bg__orb--2"></div>
+                <div class="mesh-bg__orb mesh-bg__orb--3"></div>
+            </div>
             <div class="container hero__grid">
-                <div class="hero__intro">
+                <div class="hero__intro reveal">
                     <p class="hero__eyebrow">WinPlus Asia · the official Asia player portal</p>
                     <h1 class="hero__title">WinPlus Casino — slots, live tables &amp; sports<span class="hero__accent">in one Asia-ready lobby</span></h1>
                     <p class="page-meta">Last updated: <time datetime="2026-05-23">23 May 2026</time> · Reviewed by Adrian Yong, Casino Operations Editor</p>
@@ -153,12 +160,29 @@
                     </div>
                 </div>
 
-                <div class="hero__visual">
+                <div class="hero__visual reveal reveal--scale">
                     <img class="hero__img" src="images/webp/hero-home.webp" width="960" height="540"
                         alt="WinPlus Casino Asia — slots, live dealer tables and sports betting lobby" loading="eager" decoding="async" />
                 </div>
             </div>
         </section>
+
+        <div class="trust-marquee" aria-hidden="true">
+            <div class="trust-marquee__track">
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 2,800+ WinPlus games</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 320+ live dealer tables</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Certified RNG · eCOGRA &amp; GLI</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Cash-outs under 24h</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 24/7 live chat support</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Pragmatic Play · Evolution · PG Soft</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 2,800+ WinPlus games</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 320+ live dealer tables</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Certified RNG · eCOGRA &amp; GLI</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Cash-outs under 24h</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> 24/7 live chat support</span>
+                <span class="trust-marquee__item"><span class="trust-marquee__dot"></span> Pragmatic Play · Evolution · PG Soft</span>
+            </div>
+        </div>
 
         <section class="home-catalogue-band" id="facts" aria-label="WinPlus catalogue at a glance">
             <div class="container home-catalogue-band__inner">
@@ -218,7 +242,7 @@
         </section>
 
         <section class="section section--tight" aria-labelledby="winplus-seo-heading">
-            <div class="container split-panels">
+            <div class="container split-panels reveal">
                 <div class="split-panels__main card-surface" id="hub-editorial">
                     <header class="section-head">
                         <h2 id="winplus-seo-heading" class="section-head__title">Why players choose WinPlus across Asia</h2>
@@ -241,13 +265,13 @@
         </section>
 
         <section class="section section--tight" id="hub-popular" aria-labelledby="popular-heading">
-            <div class="container">
+            <div class="container reveal">
                 <header class="section-head section-head--center">
                     <p class="section-kicker">Top picks on WinPlus</p>
                     <h2 id="popular-heading" class="section-head__title">Trending now at WinPlus Casino</h2>
                     <p class="section-head__sub">The most-played WinPlus titles this week — high-volatility hits, classic explorers and Evolution live multipliers our Asia players keep coming back to.</p>
                 </header>
-                <div class="grid-2 grid-2--games" data-wp-popular>
+                <div class="grid-2 grid-2--games reveal-stagger" data-wp-popular>
                     <article class="game-chip" data-category="slots">
                         <div class="game-chip__thumb game-chip__thumb--banner game-chip__thumb--slots"><img
                                 src="images/webp/cards/gates-of-olympus.webp" alt="Gates of Olympus preview" width="640"
