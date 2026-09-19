@@ -1,0 +1,16 @@
+# Consolidate .html URLs to extensionless canonical paths (301)
+/index.html / 301
+/products.html /products 301
+/promotions.html /promotions 301
+/about-us.html /about-us 301
+/editorial-policy.html /editorial-policy 301
+/privacy-policy.html /privacy-policy 301
+/contact.html /contact 301
+/help-center.html /help-center 301
+/terms-conditions.html /terms-conditions 301
+/responsible-gaming.html /responsible-gaming 301
+/blog/index.html /blog 301
+
+# Legacy ghost paths from old CMS
+/about /about-us 301
+/author/* /about-us 301

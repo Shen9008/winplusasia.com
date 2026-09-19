@@ -12,6 +12,8 @@
     "backfill": "node scripts/backfill-internal-links.js",
     "backfill:force": "node scripts/backfill-internal-links.js --force",
     "audit:links": "node scripts/audit-internal-links.js",
+    "sync:blog-index": "node scripts/sync-blog-index-static.mjs",
+    "normalize:links": "node scripts/normalize-internal-links.mjs",
     "fix:blog-urls": "node scripts/normalize-blog-page-urls.js",
     "deploy": "wrangler pages deploy . --project-name=winplusasia --branch=main --skip-caching",
     "longform:merge": "node scripts/merge-longform.mjs",
@@ -27,6 +29,6 @@
     "dotenv": "^16.5.0",
     "serve": "^14.2.6",
     "sharp": "^0.34.5",
-    "wrangler": "^4.28.0"
+    "wrangler": "^4.134.0"
   }
 }
