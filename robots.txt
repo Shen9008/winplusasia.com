@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 Disallow: /author/
+Disallow: /*.html$
 
 Sitemap: https://winplusasia.com/sitemap.xml

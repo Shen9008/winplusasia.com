@@ -10,6 +10,7 @@
 /terms-conditions.html /terms-conditions 301
 /responsible-gaming.html /responsible-gaming 301
 /blog/index.html /blog 301
+/blog/ /blog 301
 
 # Legacy ghost paths from old CMS
 /about /about-us 301
